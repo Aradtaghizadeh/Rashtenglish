@@ -1,0 +1,398 @@
+:root {
+    /* Appearance */
+    --nav-radius: 50px;
+    --nav-padding: 1% 3%;
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border-night: rgba(255, 255, 255, 0.16);
+    --glass-border-day: rgba(255, 255, 255, 0.7);
+    --glass-shadow-night: 0 10px 30px rgba(2, 6, 16, 0.28);
+    --glass-shadow-day: 0 10px 30px rgba(2, 6, 16, 0.08);
+    --after-shadow-night:0 10px 30px rgba(2, 6, 16, 0.8);
+    --after-shadow-day:0 10px 30px rgba(2, 6, 16, 0.2);
+    --nav-btn-bg-night: rgba(255, 255, 255, 0.03);
+    --nav-btn-bg-day: rgba(255, 255, 255, 0.5);
+    /* Float / swim */
+    --float-duration: 7.5s;
+    --float-ease: cubic-bezier(.22, .9, .36, 1);
+    --float-amplitude: 6px;
+    /* how much it moves up/down */
+    --float-rot: 0.12deg;
+    /* subtle rotate during float */
+
+    /* Tilt (pointer) */
+    --tilt-x: 0deg;
+    --tilt-y: 0deg;
+    --tilt-scale: 1.00;
+
+    /* small perf tuners */
+    --reduced-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+
+    /* colors */
+    --accent: rgba(255, 255, 255, 0.95);
+    --muted: rgba(255, 255, 255, 0.78);
+
+    /* menu */
+    --menu-width-mobile: 220px;
+    --menu-stagger-ms: 70ms;
+}
+[data-theme="light"]{
+    --nav-btn-bg: var(--nav-btn-bg-day);
+    --glass-border: var(--glass-border-day);
+    --glass-shadow: var(--glass-shadow-day);
+    --after-shadow: var(--after-shadow-day);
+}
+
+[data-theme="dark"]{
+    --nav-btn-bg: var(--nav-btn-bg-night);
+    --glass-border: var(--glass-border-night);
+    --glass-shadow: var(--glass-shadow-night);
+    --after-shadow: var(--after-shadow-night);
+}
+
+.space{
+    margin-left: 135%;
+}
+
+.account-img{
+    content: url(../images/account.png);
+    width: 40px;
+}
+[data-theme="light"] .account-img{
+    content: url(../images/account-day.png);
+}
+
+.nav-btn-text{
+    white-space: nowrap;
+}
+
+.communication-nav-btn{
+    width: 1%;
+    height: 1%;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    padding: 0.1%;
+}
+.communication-nav-btn:hover{
+    transform: scale(1.2);
+}
+
+/* ---------- Nav wrapper (keeps nav centered and stable width) ---------- */
+.nav-wrap {
+    position: sticky;
+    top: 18px;
+    /* small gap from top */
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+    /* let nav control events */
+    z-index: 9999;
+}
+
+/* ---------- Glass nav (the visible element) ---------- */
+nav.glass-nav {
+    pointer-events: auto;
+    margin-top: 2.5%;
+    width: 60%;
+    border-radius: var(--nav-radius);
+    padding: var(--nav-padding);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(8px) saturate(120%);
+    -webkit-backdrop-filter: blur(8px) saturate(120%);
+    /* the transform is composed inside the keyframes via vars so JS can update CSS vars (parallax/tilt) */
+    transform-origin: center;
+    animation: floaty var(--float-duration) var(--float-ease) infinite;
+    will-change: transform;
+    position: relative;
+    overflow: visible;
+    transition: all 0.7s ease;
+}
+nav.glass-nav:hover{
+    box-shadow: var(--after-shadow);
+}
+
+/* ---------- transform composition & float keyframes ----------
+    Note: keyframes include CSS vars. JS manipulates --nav-parallax, --tilt-x, --tilt-y to compose motion.
+    Use only transform/opacity in animations for best perf. (web.dev) */
+@keyframes floaty {
+    0% {
+        transform:
+            perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translateY(calc(var(--nav-parallax, 0px) - var(--float-amplitude))) rotate(calc(var(--float-rot) * -1));
+    }
+
+    50% {
+        transform:
+            perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translateY(calc(var(--nav-parallax, 0px) + var(--float-amplitude))) rotate(var(--float-rot));
+    }
+
+    100% {
+        transform:
+            perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translateY(calc(var(--nav-parallax, 0px) - var(--float-amplitude))) rotate(calc(var(--float-rot) * -1));
+    }
+}
+
+@keyframes glowMove {
+    0% {
+        transform: translateX(-22%)
+    }
+
+    50% {
+        transform: translateX(20%)
+    }
+
+    100% {
+        transform: translateX(-22%)
+    }
+}
+
+/* ---------- menu (desktop) ---------- */
+.nav-inner {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+ul.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 25%;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+ul.nav-menu li {
+    --i: 0
+}
+
+/* default var for stagger; JS sets better values on load */
+
+ul.nav-menu li a {
+    display: inline-block;
+    color: var(--fg);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 15% 25%;
+    border-radius: 20px;
+    position: relative;
+    transition: transform .28s var(--float-ease), color .22s ease, background .22s ease;
+    will-change: transform, color;
+    transform-origin: center;
+}
+
+/* subtle animated underline (scaleX) - GPU friendly */
+ul.nav-menu li a::after {
+    content: "";
+    position: absolute;
+    left: 12%;
+    right: 12%;
+    bottom: 6px;
+    height: 3px;
+    background: var(--fg);
+    border-radius: 99px;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform .28s var(--float-ease);
+    opacity: 0.95;
+}
+
+ul.nav-menu li a:hover::after,
+ul.nav-menu li a:focus::after {
+    transform: scaleX(1);
+}
+
+ul.nav-menu li a:hover,
+ul.nav-menu li a:focus {
+    color: var(--fg);
+    transform: translateY(-4px) scale(1.02);
+    background: var(--nav-btn-bg);
+    outline: none;
+}
+
+/* ---------- mobile toggle ---------- */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.nav-toggle .bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--fg);
+    margin: 4px 0;
+    border-radius: 2px;
+    transition: transform .28s ease, opacity .28s ease;
+    will-change: transform, opacity;
+}
+
+/* ---------- mobile menu (animated via transform & opacity only) ---------- */
+@media (max-width: 1400px) {
+    .nav-wrap{
+        display: none;
+    }
+
+
+
+    /* .nav-toggle {
+        display: block
+    } */
+
+    /* ul.nav-menu {
+        position: absolute;
+        right: 18px;
+        top: calc(100% + 12px);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 10px;
+        border-radius: 12px;
+        flex-direction: column;
+        gap: 8px;
+        width: var(--menu-width-mobile);
+        box-shadow: 0 12px 36px rgba(0, 0, 0, 0.32);
+        transform-origin: top right;
+        transform: translateY(-8px) scale(0.98);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform .28s var(--float-ease), opacity .22s ease, visibility .01s linear .22s;
+        will-change: transform, opacity, visibility;
+    } */
+
+    /* ul.nav-menu.open {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+        visibility: visible;
+    } */
+
+    /* stagger effect: each LI uses its --i to delay its entrance */
+    /* ul.nav-menu.open li {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    ul.nav-menu li {
+        opacity: 0;
+        transform: translateY(8px);
+        transition: transform .35s cubic-bezier(.2, .9, .3, 1), opacity .35s ease;
+        transition-delay: calc(var(--i, 0) * var(--menu-stagger-ms));
+    }
+
+    ul.nav-menu.open li {
+        transition-delay: calc(var(--i, 0) * var(--menu-stagger-ms));
+    }
+
+    ul.nav-menu li a {
+        padding: 10px 12px;
+        display: block
+    } */
+}
+
+/* ---------- ripple (click) helper ---------- */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: scale(0);
+    opacity: 0.35;
+    background: rgba(255, 255, 255, 0.18);
+    will-change: transform, opacity;
+    transition: transform 420ms cubic-bezier(.2, .9, .3, 1), opacity 420ms linear;
+}
+
+/* ---------- hover/focus outline ---------- */
+a:focus {
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
+    outline: none
+}
+
+/* ---------- reduced motion / accessibility ---------- */
+@media (prefers-reduced-motion: reduce) {
+    nav.glass-nav {
+        animation: none !important
+    }
+    ul.nav-menu li,
+    ul.nav-menu li a,
+    .nav-toggle .bar {
+        transition: none !important
+    }
+}
+
+/* ---------- reduced-effects class (applied by JS on low-power devices) ---------- */
+body.reduced-effects nav.glass-nav {
+    --float-amplitude: 2px;
+    --float-duration: 14s;
+    box-shadow: var(--reduced-shadow);
+}
+
+body.reduced-effects nav.glass-nav::before {
+    opacity: 0.6;
+    filter: blur(10px);
+    animation: none
+}
+
+body.reduced-effects nav.glass-nav::after {
+    opacity: 0.06
+}
+@media screen and (min-width:1400px){
+    .space{
+        margin-left: 105%;
+    }
+}
+@media screen and (min-width:1500px){
+    .space{
+        margin-left: 130%;
+    }
+}
+@media screen and (min-width:1600px){
+    .space{
+        margin-left: 155%;
+    }
+}
+@media screen and (min-width:1700px){
+    .space{
+        margin-left: 180%;
+    }
+}
+@media screen and (min-width:1800px){
+    .space{
+        margin-left: 205%;
+    }
+} 
+@media screen and (min-width:1900px){
+    .space{
+        margin-left: 240%;
+    }
+} 
+@media screen and (min-width:2000px){
+    .space{
+        margin-left: 265%;
+    }
+} 
+@media screen and (min-width:2100px){
+    .space{
+        margin-left: 290%;
+    }
+} 
+@media screen and (min-width:2200px){
+    .space{
+        margin-left: 315%;
+    }
+} 
+@media screen and (min-width:2300px){
+    .space{
+        margin-left: 340%;
+    }
+} 

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intermediate-Exam</title>
+    <link rel="stylesheet" href="static/styles/style.css">
+    <link rel="stylesheet" href="static/styles/exam.css">
+</head>
+<body>
+
+    <h1 class="title">Intermediate</h1><br>
+    <!-- <h2 class="title-detail">(A1-A2)</h2> -->
+
+    <div class="menu" onclick="toggleMenu(this)">
+        <div class="bar bar1"></div>
+        <div class="bar bar2"></div>
+        <div class="bar bar3"></div>
+    </div>
+
+    <div id="sideMenu">
+        <div class="toggle" id="toggle">
+            <div class="thumb">
+                <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><g stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></g></svg>
+                <svg class="moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 0 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+            </div>
+        </div>
+        <!-- <div class="lang-switcher no-translate" id="langSwitcher" dir="ltr">
+            <button class="translate-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">English ▾</button>
+            <div class="options" id="langMenu" role="menu" aria-label="Select language">
+                <button type="button" data-lang="en" data-name="English" role="menuitem">English</button>
+                <button type="button" data-lang="fa" data-name="Persian" role="menuitem">Persian</button>
+                <button type="button" data-lang="de" data-name="German"  role="menuitem">German</button>
+            </div>
+        </div> -->
+        <button class="sidebtn" id="first-btn-exam" onclick="window.location.href='index.html'">Main</button><br>
+        <button class="sidebtn" href="#about-us">About us</button><br>
+        <button class="sidebtn" href="#">Services</button>
+    </div>
+    <div id="side" onclick="toggleMenu()"></div>
+    <div class="overlay no-translate" id="overlay">Translating…</div>
+
+    <div class="question-frame">
+        <div class="title-div">
+        <label class="question-title">Vocabulary</label>
+        </div>
+        <h2 class="question">1.Choose the synonym: Difficult</h2>
+        <div class="radio-container">
+            <label class="glass-radio">
+            <input type="radio" name="v1" value="easy"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text">Easy</label>
+
+            <label class="glass-radio">
+            <input type="radio" name="v1" value="hard"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text">Hard</label>
+
+            <label class="glass-radio">
+            <input type="radio" name="v1" value="fast"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text">Fast</label>
+
+            <label class="glass-radio">
+            <input type="radio" name="v1" value="slow"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text">Slow</label>
+        </div>
+        <h2 class="question">2.Which word is related to "Health"?</h2>
+        <div class="radio-container">
+            <label class="glass-radio">
+            <input type="radio" name="v2" value="doctor"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text doctor-radio">Doctor</label>
+
+            <label class="glass-radio">
+            <input type="radio" name="v2" value="teacher"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text ">Teacher</label>
+        </div>
+        <div class="radio-container">
+            <label class="glass-radio">
+            <input type="radio" name="v2" value="actor"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text actor-radio">Actor</label>
+
+            <label class="glass-radio">
+            <input type="radio" name="v2" value="driver"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text">Driver</label>
+        </div>
+        <h2 class="question">3.He is very _____ . </h2>
+        <div class="radio-container">
+            <label class="glass-radio">
+            <input type="radio" name="v3" value="interested"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text">interested</label>
+
+            <label class="glass-radio">
+            <input type="radio" name="v3" value="interesting"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text">interesting</label>
+        </div>
+        <h2 class="question">4.A place where you can buy medicine:</h2>
+        <div class="radio-container">
+            <label class="glass-radio">
+            <input type="radio" name="v4" value="market"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text market-radio">Market</label>
+
+            <label class="glass-radio">
+            <input type="radio" name="v4" value="pharmacy"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text">Pharmacy</label>
+        </div>
+        <div class="radio-container">
+            <label class="glass-radio">
+            <input type="radio" name="v4" value="school"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text school-radio">School</label>
+
+            <label class="glass-radio">
+            <input type="radio" name="v4" value="library"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text">Library</label>
+        </div>
+        <h2 class="question">5.Opposite of always:</h2>
+        <div class="radio-container">
+            <label class="glass-radio">
+            <input type="radio" name="v5" value="never"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text never-radio">Never</label>
+            <label class="glass-radio">
+            <input type="radio" name="v5" value="sometimes"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text">Sometimes</label>
+        </div>
+        <div class="radio-container">
+            <label class="glass-radio">
+            <input type="radio" name="v5" value="often"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text often-radio">Often</label>
+            <label class="glass-radio">
+            <input type="radio" name="v5" value="usually"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text">Usually</label>
+        </div>
+    </div>
+<!-- Grammar -->
+    <div class="question-frame">
+        <div class="title-div">
+        <label class="question-title">Grammar</label>
+        </div>
+        <h2 class="question">1.If I _____ money, I would travel.</h2>
+        <div class="radio-container">
+            <label class="glass-radio">
+            <input type="radio" name="g1" value="have"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text">have</label>
+
+            <label class="glass-radio">
+            <input type="radio" name="g1" value="had"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text">had</label>
+
+            <label class="glass-radio">
+            <input type="radio" name="g1" value="has"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text">has</label>
+
+            <label class="glass-radio">
+            <input type="radio" name="g1" value="having"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text">having</label>
+        </div>
+
+        <h2 class="question">2.She _____ to Paris last summer.</h2>
+        <div class="radio-container">
+            <label class="glass-radio">
+            <input type="radio" name="g2" value="go"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text">go</label>
+
+            <label class="glass-radio">
+            <input type="radio" name="g2" value="goes"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text">goes</label>
+
+            <label class="glass-radio">
+            <input type="radio" name="g2" value="went"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text">went</label>
+
+            <label class="glass-radio">
+            <input type="radio" name="g2" value="gone"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text">gone</label>
+        </div>
+        <h2 class="question">3.I have lived here _____ 2010.</h2>
+        <div class="radio-container">
+            <label class="glass-radio">
+            <input type="radio" name="g3" value="for"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text">for</label>
+
+            <label class="glass-radio">
+            <input type="radio" name="g3" value="since"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text">since</label>
+
+            <label class="glass-radio">
+            <input type="radio" name="g3" value="ago"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text">ago</label>
+
+            <label class="glass-radio">
+            <input type="radio" name="g3" value="from"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text">from</label>
+        </div>
+        <h2 class="question">4.They are used _____ late.</h2>
+        <div class="radio-container">
+            <label class="glass-radio">
+            <input type="radio" name="g4" value="to sleep"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text to-sleep-radio">to sleep</label>
+            
+            <label class="glass-radio">
+            <input type="radio" name="g4" value="to sleeping"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text">to sleeping</label>
+        </div>
+        <div class="radio-container">
+            <label class="glass-radio">
+            <input type="radio" name="g4" value="sleep"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text sleep-radio">sleep</label>
+
+            <label class="glass-radio">
+            <input type="radio" name="g4" value="slept"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text">slept</label>
+        </div>
+        <h2 class="question">5.While I _____ TV, my phone rang.</h2>
+        <div class="radio-container">
+            <label class="glass-radio">
+            <input type="radio" name="g5" value="watch"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text watch-radio">watch</label>
+            <label class="glass-radio">
+            <input type="radio" name="g5" value="was watching"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text">was watching</label>
+        </div>
+        <div class="radio-container">
+            <label class="glass-radio">
+            <input type="radio" name="g5" value="watched"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text watched-radio">watched</label>
+            <label class="glass-radio">
+            <input type="radio" name="g5" value="watching"/>
+            <span class="checkmark"></span>
+            </label>
+            <label class="glass-radio-text">watching</label>
+        </div>
+    </div>
+<!-- Reading -->
+    <div class="question-frame">
+        <div class="title-div">
+            <label class="question-title">Reading</label>
+        </div>
+        <div class="reading-div">
+            <h2 class="question">Many people today prefer to shop online. It is easier and often cheaper than going to stores. However, some people believe shopping online is not safe because you cannot see the product before buying it.</h2>
+        </div>
+        <label class="title-label">Questions:</label>
+        <h2 class="question">1.Why do peaple prefer shopping online?</h2>
+        <input class="answer" placeholder="Enter your answer..."></input>
+        <h2 class="question">2.Why do some peaple think it is not safe?</h2>
+        <input class="answer" placeholder="Enter your answer..."></input>
+        <h2 class="question">3.Is it usually more expensive or cheaper online?</h2>
+        <input class="answer" placeholder="Enter your answer..."></input>
+        <h2 class="question">4.Can you see the product before buying online?</h2>
+        <input class="answer" placeholder="Enter your answer..."></input>
+        <h2 class="question">5.What is the topic of the text?</h2>
+        <input class="answer" placeholder="Enter your answer..."></input>
+    </div>
+<!-- Listening -->
+    <div class="question-frame">
+        <div class="title-div">
+            <label class="question-title">Listening</label>
+        </div>
+        <div class="audio-container">
+            <div class="audio-bar2 hidden" id="audioBar2">
+                <div id="audioBar2" class="hidden">
+                    <button class="play-btn2" id="playPauseBtn2"></button>
+                    <audio id="player2" controls></audio>
+                    <div id="playTime2">00:00 / 00:00</div>
+                    <div id="timeBarContainer2">
+                        <div id="timeBarProgress2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <label class="title-label">Questions:</label>
+        <h2 class="question">1.What time are they meeting?</h2>
+        <input class="answer" placeholder="Enter your answer..."></input>
+        <h2 class="question">2.Where are they meeting?</h2>
+        <input class="answer" placeholder="Enter your answer..."></input>
+        <h2 class="question">3.What do they want to drink?</h2>
+        <input class="answer" placeholder="Enter your answer..."></input>
+        <h2 class="question">4.Who is coming with them?</h2>
+        <input class="answer" placeholder="Enter your answer..."></input>
+        <h2 class="question">5.Is it morning or evening?</h2>
+        <input class="answer" placeholder="Enter your answer..."></input>
+    </div>
+<!-- Speaking -->
+    <div class="question-frame">
+        <div class="title-div">
+            <label class="question-title">Speaking</label>
+        </div>
+        <h2 class="bolded-title">Task:</h2>
+        <h2 class="question">Talk about your last holiday. Where did you go? Who did you go with? What did you do?</h2>
+
+        <div class="card" role="application" aria-label="Voice recorder">
+            <!-- <div class="hint">Hold to record • Slide up to lock • Slide left to cancel</div> -->
+
+
+
+            <div class="controls">
+                <div class="left-controls">
+                <button class="rec-btn" id="recBtn" type="button" aria-pressed="false">
+                    <span id="recIcon">🎙️</span>
+                    <span class="lock-bubble" id="lockBubble">Slide up to lock</span>
+                </button>
+                <div>
+                    <div class="time-display" id="timer">00:00</div>
+                    <div class="mini-hint" id="miniHint">Hold • Release to send</div>
+                </div>
+                </div>
+                <div class="btn-group">
+                <button class="btn hidden" id="pauseBtn">Pause</button>
+                <button class="btn danger hidden" id="stopBtn">Stop</button>
+                <button class="btn hidden" id="downloadBtn">Download</button>
+                </div>
+            </div>
+
+            <div class="audio-bar hidden" id="audioBar">
+                <div id="audioControls" class="hidden">
+                    <button class="play-btn" id="playPauseBtn"></button>
+                    <audio id="player"></audio>
+                    <div id="playTime">00:00 / 00:00</div>
+                    <div id="timeBarContainer">
+                        <div id="timeBarProgress"></div>
+                    </div>
+                </div>
+                
+                <!-- <div class="audio-controls">
+                <span id="playTime">00:00 / 00:00</span>
+                <label>
+                    Speed:
+                    <select id="playSpeed">
+                    <option value="0.5">0.5×</option>
+                    <option value="1" selected>1×</option>
+                    <option value="1.5">1.5×</option>
+                    <option value="2">2×</option>
+                    </select>
+                </label>
+                </div> -->
+            </div>
+
+            <div class="status" id="status">Ready — hold to record</div>
+        </div>
+    </div>
+<!-- Writing -->
+    <div class="question-frame">
+        <div class="title-div">
+            <label class="question-title">Writing</label>
+        </div>
+        <h2 class="bolded-title">Task:</h2>
+        <h2 class="question">Write an email to a friend about a problem you had recently and how you solved it (100-120 words).</h2>
+        <textarea class="writing"></textarea>
+
+    </div>
+    <button class="button" type="submit">Done</button>
+    <button id="topButton" onclick="scrollToTop()">Top</button>
+    <script src="static/js/exam.js"></script>
+    <script src="static/js/script.js"></script>
+
+    
+</body>
+</html>

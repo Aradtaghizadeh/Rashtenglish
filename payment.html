@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ultimate Glass Payment Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      overflow-x: hidden;
+      padding: 20px;
+    }
+
+    /* Background animation */
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+      animation: float 10s infinite ease-in-out alternate;
+      z-index: 0;
+    }
+
+    .circle:nth-child(1) {
+      width: 300px;
+      height: 300px;
+      top: 10%;
+      left: -150px;
+    }
+
+    .circle:nth-child(2) {
+      width: 200px;
+      height: 200px;
+      bottom: 15%;
+      right: -100px;
+    }
+
+    .circle:nth-child(3) {
+      width: 150px;
+      height: 150px;
+      top: 60%;
+      left: 20%;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(0px);
+      }
+
+      to {
+        transform: translateY(-30px);
+      }
+    }
+
+    /* Toggle button */
+    .toggle-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 2;
+      backdrop-filter: blur(10px);
+    }
+
+    .toggle-btn img {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* Container */
+    .container {
+      width: 400px;
+      max-width: 100%;
+      padding: 30px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      color: #fff;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Card preview */
+    .card-preview {
+      width: 340px;
+      height: 210px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+      color: #fff;
+      padding: 20px;
+      position: absolute;
+      top: -250px;
+      left: 50%;
+      transform: translateX(-50%);
+      perspective: 1000px;
+      transition: transform 0.3s ease-out;
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.8s;
+    }
+
+    .card-front,
+    .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-front {
+      padding: 20px;
+    }
+
+    .card-front img {
+      width: 60px;
+      align-self: flex-end;
+    }
+
+    .card-number {
+      font-size: 1.3rem;
+      letter-spacing: 2px;
+      margin-top: 20px;
+      word-spacing: 6px;
+    }
+
+    .card-holder,
+    .card-expiry {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      margin-top: 15px;
+    }
+
+    .card-back {
+      background: rgba(0, 0, 0, 0.4);
+      transform: rotateY(180deg);
+      padding: 20px;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    .cvv-box {
+      background: #fff;
+      color: #000;
+      width: 80px;
+      padding: 5px;
+      border-radius: 5px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /* Form */
+    .container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.6rem;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    .input-group label {
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+      display: block;
+      opacity: 0.85;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px 40px 12px 12px;
+      border-radius: 12px;
+      border: none;
+      outline: none;
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .input-group input:focus {
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    }
+
+    .input-group input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .input-group img {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 32px;
+      height: auto;
+      opacity: 0.9;
+    }
+
+    .row {
+      display: flex;
+      gap: 10px;
+    }
+
+    /* Button */
+    button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #ff8a00, #e52e71);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    button::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+      transition: 0.5s;
+    }
+
+    button:hover::before {
+      left: 100%;
+    }
+
+    /* Saved cards */
+    .saved-cards {
+      margin-top: 20px;
+    }
+
+    .saved-cards h3 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .saved-cards .card-option {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 10px 15px;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .saved-cards .card-option:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    /* Spinner & success */
+    .spinner {
+      border: 4px solid rgba(255, 255, 255, 0.3);
+      border-top: 4px solid #fff;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      animation: spin 1s linear infinite;
+      margin: 10px auto;
+      display: none;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .success {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 1rem;
+      display: none;
+      color: #00ffcc;
+    }
+
+    /* Light mode */
+    body.light {
+      background: linear-gradient(135deg, #f0f0f0, #dcdcdc);
+      color: #000;
+    }
+
+    body.light .container {
+      background: rgba(0, 0, 0, 0.05);
+      color: #000;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    body.light .card-preview {
+      background: rgba(0, 0, 0, 0.1);
+      color: #000;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    body.light .card-back {
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    body.light .input-group input {
+      background: rgba(0, 0, 0, 0.1);
+      color: #000;
+    }
+
+    body.light .input-group input::placeholder {
+      color: rgba(0, 0, 0, 0.6);
+    }
+
+    body.light .success {
+      color: green;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .container {
+        padding: 20px;
+        width: 100%;
+      }
+
+      .card-preview {
+        width: 280px;
+        height: 170px;
+        top: -210px;
+      }
+
+      .card-number {
+        font-size: 1rem;
+      }
+
+      .card-holder,
+      .card-expiry {
+        font-size: 0.7rem;
+      }
+
+      .row {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Background animation -->
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+
+  <!-- Theme toggle -->
+  <button class="toggle-btn" id="themeToggle"><img id="themeIcon"
+      src="https://img.icons8.com/ios-filled/50/moon-symbol.png"></button>
+
+  <div class="container">
+    <!-- Card preview -->
+    <div class="card-preview" id="cardPreview">
+      <div class="card-inner" id="cardInner">
+        <div class="card-front">
+          <img id="previewLogo" src="https://img.icons8.com/color/48/visa.png" alt="logo">
+          <div class="card-number" id="previewNumber">#### #### #### ####</div>
+          <div class="card-holder" id="previewName">John Doe</div>
+          <div class="card-expiry" id="previewExpiry">MM/YY</div>
+        </div>
+        <div class="card-back">
+          <div class="cvv-box" id="previewCVV">***</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <h2>Secure Payment</h2>
+    <form id="paymentForm">
+      <div class="input-group"><label>Cardholder Name</label><input type="text" id="cardName" placeholder="John Doe"
+          required></div>
+      <div class="input-group"><label>Card Number</label><input type="text" id="cardNumber"
+          placeholder="1234 5678 9012 3456" maxlength="19" required><img id="cardLogo"
+          src="https://img.icons8.com/color/48/visa.png"></div>
+      <div class="row">
+        <div class="input-group" style="flex:1;"><label>Expiry</label><input type="text" id="cardExpiry"
+            placeholder="MM/YY" maxlength="5" required></div>
+        <div class="input-group" style="flex:1;"><label>CVV</label><input type="password" id="cardCVV" placeholder="***"
+            maxlength="3" required><img src="https://img.icons8.com/ios-filled/50/lock.png"></div>
+      </div>
+      <button type="submit">Pay Now</button>
+      <div class="spinner" id="spinner"></div>
+    </form>
+    <p class="success" id="successMsg">✅ Payment Successful!</p>
+
+    <!-- Saved Cards -->
+    <div class="saved-cards">
+      <h3>Saved Cards</h3>
+      <div class="card-option" data-name="John Doe" data-number="4111111111111111" data-expiry="12/26">
+        <span>💳 Visa ending 1111</span><span>Use</span>
+      </div>
+      <div class="card-option" data-name="Sarah Lee" data-number="5500000000000004" data-expiry="11/25">
+        <span>💳 MasterCard ending 0004</span><span>Use</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('paymentForm');
+    const successMsg = document.getElementById('successMsg');
+    const spinner = document.getElementById('spinner');
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+
+    const cardName = document.getElementById("cardName");
+    const cardNumber = document.getElementById("cardNumber");
+    const cardExpiry = document.getElementById("cardExpiry");
+    const cardCVV = document.getElementById("cardCVV");
+
+    const previewName = document.getElementById("previewName");
+    const previewNumber = document.getElementById("previewNumber");
+    const previewExpiry = document.getElementById("previewExpiry");
+    const previewCVV = document.getElementById("previewCVV");
+    const previewLogo = document.getElementById("previewLogo");
+    const cardLogo = document.getElementById("cardLogo");
+    const cardInner = document.getElementById("cardInner");
+    const cardPreview = document.getElementById("cardPreview");
+
+    // Update preview live
+    cardName.addEventListener("input", () => previewName.textContent = cardName.value || "John Doe");
+    cardNumber.addEventListener("input", () => {
+      let value = cardNumber.value.replace(/\D/g, "").substring(0, 16);
+      let formatted = value.replace(/(.{4})/g, "$1 ").trim();
+      cardNumber.value = formatted;
+      previewNumber.textContent = formatted || "#### #### #### ####";
+      if (/^4/.test(value)) cardLogo.src = previewLogo.src = "https://img.icons8.com/color/48/visa.png";
+      else if (/^5[1-5]/.test(value)) cardLogo.src = previewLogo.src = "https://img.icons8.com/color/48/mastercard.png";
+      else if (/^3[47]/.test(value)) cardLogo.src = previewLogo.src = "https://img.icons8.com/color/48/amex.png";
+      else cardLogo.src = previewLogo.src = "https://img.icons8.com/color/48/bank-card-back-side.png";
+    });
+    cardExpiry.addEventListener("input", () => {
+      let value = cardExpiry.value.replace(/\D/g, "").substring(0, 4);
+      cardExpiry.value = value.length >= 3 ? value.substring(0, 2) + "/" + value.substring(2, 4) : value;
+      previewExpiry.textContent = cardExpiry.value || "MM/YY";
+    });
+    cardCVV.addEventListener("focus", () => cardInner.style.transform = "rotateY(180deg)");
+    cardCVV.addEventListener("blur", () => cardInner.style.transform = "rotateY(0deg)");
+    cardCVV.addEventListener("input", () => previewCVV.textContent = cardCVV.value || "***");
+
+    // Tilt effect
+    cardPreview.addEventListener("mousemove", (e) => {
+      let rect = cardPreview.getBoundingClientRect();
+      let x = e.clientX - rect.left, y = e.clientY - rect.top;
+      let rotateY = ((x / rect.width) - 0.5) * 30, rotateX = ((y / rect.height) - 0.5) * -30;
+      cardPreview.style.transform = `translateX(-50%) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+    cardPreview.addEventListener("mouseleave", () => cardPreview.style.transform = "translateX(-50%) rotateX(0deg) rotateY(0deg)");
+
+    // Saved cards autofill
+    document.querySelectorAll(".card-option").forEach(option => {
+      option.addEventListener("click", () => {
+        cardName.value = option.dataset.name;
+        cardNumber.value = option.dataset.number.replace(/(.{4})/g, "$1 ").trim();
+        cardExpiry.value = option.dataset.expiry;
+        previewName.textContent = cardName.value;
+        previewNumber.textContent = cardNumber.value;
+        previewExpiry.textContent = cardExpiry.value;
+      });
+    });
+
+    // Submit
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); spinner.style.display = "block"; successMsg.style.display = "none";
+      setTimeout(() => {
+        spinner.style.display = "none"; successMsg.style.display = "block"; form.reset();
+        previewName.textContent = "John Doe"; previewNumber.textContent = "#### #### #### ####"; previewExpiry.textContent = "MM/YY"; previewCVV.textContent = "***";
+      }, 2000);
+    });
+
+    // Theme toggle
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("light");
+      themeIcon.src = document.body.classList.contains("light") ? "https://img.icons8.com/ios-filled/50/sun--v1.png" : "https://img.icons8.com/ios-filled/50/moon-symbol.png";
+    });
+  </script>
+</body>
+
+</html>

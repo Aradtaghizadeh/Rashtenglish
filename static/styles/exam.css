@@ -1,0 +1,879 @@
+.title {
+    background: rgba(255, 255, 255, 0.3);
+    /* Semi-transparent white */
+    padding: 5% 5%;
+    font-size: 1.5rem;
+    color: var(--fg);
+    margin: 2%;
+    border-radius: 100px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow */
+    backdrop-filter: blur(10px);
+    /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(10px);
+    /* For Safari */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Optional border */
+    display: inline-block;
+    text-align: center;
+}
+
+.title-detail {
+    padding: 5% 3%;
+    font-size: 1rem;
+    color: var(--fg);
+    margin-top: -6%;
+    display: inline-block;
+    text-align: center;
+}
+
+.exam-title {
+    margin: 4%;
+    font-size: 1.5rem;
+}
+
+#first-btn-exam{
+    margin-top: 50%;
+}
+
+.login-frame {
+    width: 85%;
+    margin-top: 55%;
+    background: rgba(255, 255, 255, 0.2);
+    /* Semi-transparent white */
+    padding: 1% 3%;
+    border-radius: 70px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow */
+    backdrop-filter: blur(5px);
+    /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(5px);
+    /* For Safari */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Optional border */
+    display: inline-block;
+    text-align: center;
+}
+
+.button {
+    width: 35%;
+    margin: 5%;
+    background: rgba(255, 255, 255, 0.2);
+    /* Semi-transparent white */
+    padding: 3% 5%;
+    border-radius: 70px;
+    font-size: 1.5rem;
+    color: var(--fg);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow */
+    backdrop-filter: blur(5px);
+    /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(5px);
+    /* For Safari */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Optional border */
+    display: inline-block;
+    text-align: center;
+    transition: all 0.4s ease;
+}
+
+.button:hover {
+    background: rgba(255, 255, 255, 0.432);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
+    border-radius: 120px;
+}
+
+.label {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.login-input {
+    width: 70%;
+    background: rgba(255, 255, 255, 0.05);
+    /* Semi-transparent white */
+    padding: 4%;
+    margin-top: -4%;
+    font-size: 1rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    /* Subtle shadow */
+    backdrop-filter: blur(5px);
+    /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(5px);
+    /* For Safari */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Optional border */
+    text-align: center;
+    color: var(--fg);
+    outline: none;
+    transition: all 0.4s ease;
+}
+
+.login-input:hover {
+    transform: scale(1.2);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 120px;
+}
+
+.login-input::placeholder {
+    color: var(--placeholder);
+}
+
+.input {
+    width: 70%;
+    background: rgba(255, 255, 255, 0.2);
+    /* Semi-transparent white */
+    padding: 4%;
+    margin-top: -4%;
+    font-size: 1rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow */
+    backdrop-filter: blur(5px);
+    /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(5px);
+    /* For Safari */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Optional border */
+    text-align: center;
+    color: var(--fg);
+    outline: none;
+    transition: all 0.4s ease;
+}
+
+.input:hover {
+    transform: scale(1.2);
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.input::placeholder {
+    color: var(--placeholder);
+}
+
+.error {
+    border: 2px solid red;
+    background-color: #ffe6e6;
+}
+
+/* Glass Mode Toggle */
+#levels {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 70px;
+    padding: 2%;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 95%;
+    margin: 20px auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    transition: all 0.4s ease;
+}
+
+#levels:hover{
+    transform: scale(1.05);
+
+}
+
+/* Hide the radio buttons */
+#levels input[type="radio"] {
+    display: none;
+}
+
+/* Labels */
+#levels label {
+    flex: 1;
+    text-align: center;
+    padding: 1.2% 0;
+    color: var(--fg);
+    cursor: pointer;
+    position: relative;
+    font-size: 0.8rem;
+    z-index: 2;
+    transition: color 0.3s ease;
+    overflow-x: auto;
+
+}
+
+
+/* Selector highlight */
+#levels .selector {
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
+    width: calc(33.33% - 10px);
+    border-radius: 70px;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5),
+        0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: left 0.35s ease;
+    z-index: 1;
+    left: 5px;
+}
+
+/* Checked states */
+#opt-beginner:checked~.selector {
+    left: 5px;
+}
+
+#opt-intermediate:checked~.selector {
+    left: calc(33.33% + 5px);
+}
+
+#opt-advanced:checked~.selector {
+    left: calc(66.66% + 5px);
+}
+
+/* Active label text */
+#opt-beginner:checked+label,
+#opt-intermediate:checked+label,
+#opt-advanced:checked+label {
+    color: var(--fg);
+    font-weight: bolder;
+    
+}
+
+.question-frame {
+    width: 90%;
+    margin-top: 1%;
+    background: rgba(255, 255, 255, 0.2);
+    /* Semi-transparent white */
+    padding: 7% 3%;
+    border-radius: 50px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow */
+    backdrop-filter: blur(5px);
+    /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(5px);
+    /* For Safari */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Optional border */
+    display: inline-block;
+    text-align: left;
+    overflow-x: visible;
+}
+
+.question-title {
+    font-size: 1rem;
+    text-align: center;
+    padding: 4%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 100px;
+    box-shadow: 0 12px 6px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow */
+    backdrop-filter: blur(5px);
+    /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(5px);
+    /* For Safari */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Optional border */
+}
+
+.reading-div{
+    padding: 0 5%;
+    margin-top: 7%;
+    margin-bottom: 3%;
+    background: rgba(255, 255, 255, 0);
+    border-radius: 30px;
+    box-shadow: 0 12px 6px rgba(0, 0, 0, 0.3);
+    /* Subtle shadow */
+    backdrop-filter: blur(5px);
+    /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(5px);
+    /* For Safari */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Optional border */
+    transition: all 0.4s ease;
+
+}
+
+.reading-div:hover{
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 50px;
+    
+
+}
+
+.question {
+    margin-top: 8%;
+    margin-bottom: 5%;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.sentence {
+    font-size: 1.1rem;
+    margin-left: 3%;
+    font-style: italic;
+
+}
+
+.radio-container {
+    display: flex;
+    gap: 20px;
+}
+
+.glass-radio {
+    margin-left: 1%;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 7px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), inset 0 1px 4px rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+    transition: all 0.4s ease, box-shadow 0.4s ease;
+}
+
+.glass-radio:hover {
+    transform: scale(1.3);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5), inset 0 2px 6px rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+}
+
+.glass-radio input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.glass-radio input:checked+.glass-radio::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.glass-radio .checkmark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    background: var(--checkmark);
+    border-radius: 50%;
+    transform: scale(0) translate(-50%, -50%);
+    transition: transform 0.4s ease;
+}
+
+.glass-radio input:checked+.checkmark {
+    transform: scale(1) translate(-50%, -50%);
+}
+
+.glass-radio-text {
+    margin-top: -0.5%;
+    margin-left: -0.5%;
+    padding: 1% 0;
+    /* background: rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(5px); 
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    border-radius: 50px; */
+    font-size: 0.8rem;
+    text-align: center;
+    font-weight: 500;
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); */
+}
+
+.drink-radio {
+    margin-right: 20%;
+    margin-bottom: 3%;
+}
+
+.drinking-radio {
+    margin-right: 8%;
+}
+
+.rice-radio {
+    margin-right: 21%;
+    margin-bottom: 3%;
+}
+
+.bread-radio {
+    margin-right: 18%;
+}
+
+.doctor-radio{
+    margin-right: 20.5%;
+    margin-bottom: 3%;
+}
+
+.actor-radio{
+    margin-right: 22.5%;
+}
+
+.market-radio{
+    margin-right: 17.3%;
+    margin-bottom: 3%;
+}
+
+.school-radio{
+    margin-right: 18.5%;
+}
+
+
+.never-radio {
+    margin-right: 19.5%;
+    margin-bottom: 3%;
+}
+
+.often-radio {
+    margin-right: 19.5%;
+}
+
+.to-sleep-radio{
+    margin-right: 17%;
+    margin-bottom: 3%;
+}
+
+.sleep-radio{
+    margin-right: 22%;
+}
+
+
+.watch-radio{
+    margin-right: 20.5%;
+    margin-bottom: 3%;
+}
+
+.watched-radio{
+    margin-right: 16.2%;
+}
+
+.title-label {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.title-div {
+    text-align: center;
+}
+
+.bolded-title{
+    font-style: italic;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 7%;
+    margin-bottom: -5%;
+}
+
+.answer {
+    width: 80%;
+    padding: 5%;
+    margin-top: 0%;
+    margin-left: 5%;
+    margin-bottom: -5%;
+    border-radius: 22px;
+    border: none;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    font-size: 1rem;
+    color: var(--fg);
+    resize: none;
+    outline: none;
+    transition: all 0.4s ease;
+}
+
+.answer::placeholder {
+    color: var(--placeholder);
+}
+
+.answer:hover {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+    border-radius: 50px;
+}
+
+:root {
+    --danger: #e94b3c;
+}
+
+.card {
+    display: inline-block;
+    width: 80%;
+    gap: 20px;
+    overflow: visible;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.rec-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-top: 5%;
+    background: var(--accent);
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    touch-action: none;
+    box-shadow: 0 10px 30px rgba(27, 145, 207, 0.2);
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+
+.rec-btn.recording {
+    background: var(--danger);
+    transform: scale(1.05);
+}
+
+.rec-btn.locked {
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+    transform: scale(1.08);
+}
+
+.lock-bubble {
+    position: absolute;
+    top: -48px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg);
+    padding: 6px 12px;
+    border-radius: 999px;
+    box-shadow: 0 8px 24px rgba(10, 20, 30, 0.06);
+    font-size: 0.8rem;
+    color: var(--muted);
+    white-space: nowrap;
+    display: none;
+}
+
+.lock-bubble.show {
+    display: block;
+}
+
+.time-display {
+    font-size: 1rem;
+    margin-top: 5%;
+    color: var(--fg);
+    width: 30%;
+    text-align: center;
+}
+
+.mini-hint {
+    font-size: 0.8rem;
+    width: 150%;
+    color: var(--muted);
+}
+
+.btn-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn {
+    padding: 5% 10%;
+    margin-left: 15%;
+    font-size: 0.8rem;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--fg);
+    background: var(--accent);
+    transition: background 0.4s;
+}
+
+.btn:hover {
+    background: var(--accent);
+}
+
+.btn.danger {
+    background: var(--danger);
+}
+
+.btn.hidden {
+    display: none;
+}
+
+.audio-bar {
+    width: 100%;
+    margin-top: 2%;
+    margin-bottom: 3%;
+}
+
+.audio-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.audio-controls button,
+.audio-controls select {
+    font-size: 0.8rem;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.status {
+    width: 120%;
+    margin-top: 15%;
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-align: center;
+}
+
+#player {
+    display: none;
+}
+
+#playSpeed {
+    margin-left: 10%;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20% 40%;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+    outline: none;
+    cursor: pointer;
+    border-radius: 100px;
+    transition: all 0.4s ease;
+}
+
+.play-btn {
+    width: 17%;
+    padding: 10% 10%;
+    background-color: rgba(255, 255, 255, 0.05);
+    margin-top: 5%;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    outline: none;
+    cursor: pointer;
+    border-radius: 100px;
+    transition: all 0.4s ease;
+    margin-left: 1%;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: var(--play-img);
+
+}
+.play-btn:hover{
+    transform: scale(1.2);
+    background-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+#playPauseBtn.play {
+  background-image: var(--play-img);
+}
+#playPauseBtn.pause {
+  background-image: var(--pause-img);
+}
+
+.play-pause {
+    width: 100%;  
+}
+#playTime{
+    font-size: 0.8rem;
+    margin-left: 26%;
+}
+#timeBarContainer {
+    position: relative;
+    margin-top: -13%;
+    margin-left: 25%;
+    width: 80%;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+#timeBarProgress {
+    width: 0%;
+    height: 100%;
+    background: var(--time-bar);
+    border-radius: 50px;
+}
+
+.audio-container{
+    width: 80%;
+    margin-bottom: 10%;
+}
+
+
+
+
+.audio-bar2 {
+    width: 100%;
+    margin-top: 2%;
+    margin-bottom: 3%;
+}
+
+.audio-controls2 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.audio-controls2 button,
+.audio-controls2 select {
+    font-size: 0.8rem;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+#player2 {
+    display: none;
+}
+
+#playSpeed2 {
+    margin-left: 10%;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20% 40%;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+    outline: none;
+    cursor: pointer;
+    border-radius: 100px;
+    transition: all 0.4s ease;
+}
+
+.play-btn2 {
+    width: 17%;
+    padding: 10% 10%;
+    background: rgba(255, 255, 255, 0.2);
+    margin-top: 5%;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+    outline: none;
+    cursor: pointer;
+    border-radius: 100px;
+    transition: all 0.4s ease;
+    margin-left: 1%;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: var(--play-img);
+
+}
+#playPauseBtn2.play {
+  background-image: var(--play-img);
+}
+#playPauseBtn2.pause {
+  background-image: var(--pause-img);
+}
+
+.play-pause2 {
+    width: 100%;
+    
+}
+#playTime2{
+    font-size: 1rem;
+    margin-left: 26%;
+}
+#timeBarContainer2 {
+    position: relative;
+    margin-top: -13%;
+    margin-left: 25%;
+    width: 80%;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+#timeBarProgress2 {
+    width: 0%;
+    height: 100%;
+    background: var(--time-bar);
+    border-radius: 50px;
+}
+
+.audio-container2{
+    width: 80%;
+    margin-bottom: 10%;
+}
+
+
+.writing {
+    width: 86%;
+    height: 300px;
+    padding: 5%;
+    margin-top: 0%;
+    margin-left: 2%;
+    margin-bottom: -5%;
+    border-radius: 30px;
+    border: none;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    font-size: 1rem;
+    color: var(--fg);
+    resize: none;
+    outline: none;
+    transition: all 0.4s ease;
+}
+
+.writing:hover{
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    border-radius: 50px;
+}
+
+
+@media screen and (min-width:1400px) {
+    .login-frame{
+        margin-top: 5%;
+        width: 40%;
+    }
+    #levels label {
+        font-size: 1.5rem;
+    }
+    .label{
+        font-size: 2rem;
+    }
+    .login-input{
+        padding: 1.5% 2%;
+        border-radius: 30px;
+        margin-top: 1%;
+    }
+    .login-input::placeholder{
+        font-size: 1.5rem;
+    }
+    .button{
+        font-size: 1.5rem;
+    }
+    .button:hover{
+        background: rgba(0, 88, 21, 0.432);
+    }
+}

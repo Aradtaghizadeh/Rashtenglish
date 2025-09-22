@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="static/styles/style.css">
+    <link rel="stylesheet" href="static/styles/exam.css">
+    <link rel="stylesheet" href="static/styles/nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="nav-wrap">
+        <nav class="glass-nav" aria-label="Primary navigation">
+        <div class="nav-inner">
+            <button class="nav-toggle" aria-controls="nav-menu" aria-expanded="false" aria-label="Open menu">
+            <span class="bar" aria-hidden="true"></span>
+            <span class="bar" aria-hidden="true"></span>
+            <span class="bar" aria-hidden="true"></span>
+            </button>
+            <ul id="nav-menu" class="nav-menu" role="menubar" aria-hidden="false">
+            <li role="none" style="--i:0"><a role="menuitem" href="/index.html">Home</a></li>
+            <button class="communication-nav-btn space" onclick="window.location.href='https://t.me/rashtenglish5'">
+            <i id="telegram-icon" class="fa-brands fa-telegram"></i></button>
+            <button class="communication-nav-btn" id="whatsapp" onclick="window.location.href='https://wa.me/989379222166'">
+            <i id="whatsapp-icon" class="fa-brands fa-whatsapp"></i></button>
+            <button class="communication-nav-btn" id="youtube" onclick="window.location.href='https://youtube.com/'">
+            <i id="youtube-icon" class="fa-brands fa-youtube"></i></button>
+            <button class="communication-nav-btn" id="insta" onclick="window.location.href='https://instagram.com/rashtenglish'">
+            <i id="instagram-icon" class="fa-brands fa-instagram"></i></button>
+
+        
+            
+            
+            </ul>
+        </div>
+        </nav>
+    </div>
+
+
+
+
+    <div class="background">
+        <div class="particles"></div>
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+        </div>
+    </div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+
+
+    <div class="menu" onclick="toggleMenu(this)">
+        
+        <div class="bar bar1"></div>
+        <div class="bar bar2"></div>
+        <div class="bar bar3"></div>
+    </div>
+
+    <div id="sideMenu">
+        
+        <div class="toggle" id="toggle">
+            <div class="thumb">
+                <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><g stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></g></svg>
+                <svg class="moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 0 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+            </div>
+        </div>
+        <div class="lang-switcher no-translate" id="langSwitcher" dir="ltr">
+            <button class="translate-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">English ▾</button>
+            <div class="options" id="langMenu" role="menu" aria-label="Select language">
+                <button type="button" data-lang="en" data-name="English" role="menuitem">English</button>
+                <button type="button" data-lang="fa" data-name="Persian" role="menuitem">Persian</button>
+                <button type="button" data-lang="de" data-name="German"  role="menuitem">German</button>
+            </div>
+        </div>
+        <button class="sidebtn" id="first-btn" onclick="window.location.href='index.html'">Main</button><br>
+        <button class="sidebtn" href="#about-us">About us</button><br>
+        <button class="sidebtn" href="#">Services</button>
+    </div>
+
+    <div id="side" onclick="toggleMenu()"></div>
+
+    <div class="overlay no-translate" id="overlay">Translating…</div>
+    <form id="login">
+        <div class="login-frame">
+            <p class="label" for="name">Name:</p>
+            <input type="text" class="login-input" name="name" id="name" placeholder="Enter your name...">
+            <p class="label" for="age">Age:</p>
+            <input type="text" class="login-input" name="age" id="age" placeholder="Enter your age..."><br>
+            <p class="label" for="levels">Level:</p>
+            <div id="levels" dir="ltr">
+                <input type="radio" name="level" id="opt-beginner" checked  value="beginner-exam.html">
+                <label for="opt-beginner">Beginner</label>
+                <input type="radio" name="level" id="opt-intermediate" value="intermediate-exam.html">
+                <label for="opt-intermediate">Intermediate</label>
+                <input type="radio" name="level" id="opt-advanced"  value="advanced-exam.html">
+                <label for="opt-advanced">Advanced</label>
+                <div class="selector"></div>
+            </div>
+            
+
+        
+        
+        <button type="submit" class="button" id="submitBtn">Next</button>
+    </form>
+    
+
+
+    <script src="static/js/script.js"></script>
+    <script src="static/js/nav.js"></script>
+</body>
+</html>
