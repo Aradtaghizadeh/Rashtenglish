@@ -1,0 +1,115 @@
+.container{
+    margin-top: 30%;
+    margin-left: 15%;
+}
+.card-container {
+    position: relative;
+    width: 70%;
+    height: 300px;
+    cursor: pointer;
+    perspective: 1000px;
+    margin-top: 15%;
+}
+.card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    transform-style: preserve-3d;
+    overflow: hidden;
+}
+.card.teaser {
+    z-index: 2;
+}
+.card.detail {
+    opacity: 0;
+    transform: scale(0.8) rotateY(90deg);
+    pointer-events: none;
+    z-index: 1;
+}
+.card-container.active .card.teaser {
+    transform: scale(0.8) rotateY(-90deg);
+    opacity: 0;
+}
+.card-container.active .card.detail {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+    pointer-events: auto;
+    z-index: 2;
+}
+.card.teaser h3 {
+    font-size: 1.4rem;
+}
+.detail-content {
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.detail-content h2 {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+}
+.detail-content p {
+    margin-bottom: 12px;
+}
+.detail-content .info {
+    flex: 1;
+}
+.detail-content .actions {
+    text-align: center;
+}
+.detail-content .actions button {
+    padding: 10px 24px;
+    font-size: 1rem;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+.detail-content .actions button:hover {
+    background: rgba(255,255,255,0.35);
+    transform: translateY(-2px);
+}
+.detail-content .actions button .ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    background: rgba(255,255,255,0.7);
+    animation: ripple 0.6s linear;
+}
+@keyframes ripple {
+    to {
+    transform: scale(4);
+    opacity: 0;
+    }
+}
+.close-btn {
+    position: absolute;
+    top: 12px; right: 12px;
+    font-size: 1.2rem;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+.close-btn:hover {
+    color: #ddd;
+}
+
+
+
