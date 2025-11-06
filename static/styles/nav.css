@@ -49,17 +49,52 @@
     --after-shadow: var(--after-shadow-night);
 }
 
-.space{
-    margin-left: 135%;
-}
+
 
 .account-img{
-    content: url(../images/account.png);
-    width: 40px;
+    content: var(--account-pic);
+    width:30px;
 }
-[data-theme="light"] .account-img{
-    content: url(../images/account-day.png);
+.account-div{
+    position: fixed;
+    right: 3%;
 }
+.account-button{
+    border-radius: var(--nav-radius);
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-left: 30%;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(8px) saturate(120%);
+    -webkit-backdrop-filter: blur(8px) saturate(120%);
+    /* the transform is composed inside the keyframes via vars so JS can update CSS vars (parallax/tilt) */
+    transform-origin: center;
+    will-change: transform;
+    border-radius: 50%;
+    position: relative;
+    overflow: visible;
+    transition: all 0.7s ease;
+    width: 70px;
+    background-color: color-mix(in srgb, var(--c-glass) 12%, transparent);
+    /* backdrop-filter: blur(8px) url(#switcher) saturate(var(--saturation)); */
+    -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
+    box-shadow: 
+        inset 0 0 0 1px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 10%), transparent),
+        inset 1.8px 3px 0px -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 90%), transparent), 
+        inset -2px -2px 0px -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 80%), transparent), 
+        inset -3px -8px 1px -6px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 60%), transparent), 
+        inset -0.3px -1px 4px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 12%), transparent), 
+        inset -1.5px 2.5px 0px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 20%), transparent), 
+        inset 0px 3px 4px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 20%), transparent), 
+        inset 2px -6.5px 1px -4px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent), 
+        0px 1px 5px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent), 
+        0px 6px 16px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 8%), transparent);
+        
+}
+
 
 .nav-btn-text{
     white-space: nowrap;
@@ -78,6 +113,58 @@
     transform: scale(1.2);
 }
 
+.search-div{
+    position: fixed;
+    right: -8%;
+}
+
+.search-img{
+    content: var(--search-img);
+    width: 100%;
+}
+.search-button{
+    border-radius: var(--nav-radius);
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-left: 30%;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(8px) saturate(120%);
+    -webkit-backdrop-filter: blur(8px) saturate(120%);
+    /* the transform is composed inside the keyframes via vars so JS can update CSS vars (parallax/tilt) */
+    transform-origin: center;
+    will-change: transform;
+    border-radius: 50%;
+    position: relative;
+    overflow: visible;
+    transition: all 0.7s ease;
+    width: 70px;
+    background-color: color-mix(in srgb, var(--c-glass) 12%, transparent);
+    /* backdrop-filter: blur(8px) url(#switcher) saturate(var(--saturation)); */
+    -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
+    box-shadow: 
+        inset 0 0 0 1px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 10%), transparent),
+        inset 1.8px 3px 0px -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 90%), transparent), 
+        inset -2px -2px 0px -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 80%), transparent), 
+        inset -3px -8px 1px -6px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 60%), transparent), 
+        inset -0.3px -1px 4px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 12%), transparent), 
+        inset -1.5px 2.5px 0px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 20%), transparent), 
+        inset 0px 3px 4px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 20%), transparent), 
+        inset 2px -6.5px 1px -4px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent), 
+        0px 1px 5px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent), 
+        0px 6px 16px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 8%), transparent);
+        
+}
+.search-button:hover {
+    /* background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); */
+    transform: scale(1.15);
+}
+[data-theme="light"] .search-button{
+    content: url(../images/search-light.png);
+}
 /* ---------- Nav wrapper (keeps nav centered and stable width) ---------- */
 .nav-wrap {
     position: sticky;
@@ -87,14 +174,14 @@
     justify-content: center;
     pointer-events: none;
     /* let nav control events */
-    z-index: 9999;
+    z-index: 1;
 }
 
 /* ---------- Glass nav (the visible element) ---------- */
 nav.glass-nav {
     pointer-events: auto;
     margin-top: 2.5%;
-    width: 60%;
+    width: 50%;
     border-radius: var(--nav-radius);
     padding: var(--nav-padding);
     display: flex;
@@ -113,10 +200,38 @@ nav.glass-nav {
     position: relative;
     overflow: visible;
     transition: all 0.7s ease;
+    background-color: color-mix(in srgb, var(--c-glass) 12%, transparent);
+    /* backdrop-filter: blur(8px) url(#switcher) saturate(var(--saturation)); */
+    -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
+    box-shadow: 
+        inset 0 0 0 1px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 10%), transparent),
+        inset 1.8px 3px 0px -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 30%), transparent), 
+        inset -2px -2px 0px -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 10%), transparent), 
+        inset -3px -8px 1px -6px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 50%), transparent), 
+        inset -0.3px -1px 4px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 12%), transparent), 
+        inset -1.5px 2.5px 0px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 20%), transparent), 
+        inset 0px 3px 4px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 20%), transparent), 
+        inset 2px -6.5px 1px -4px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent), 
+        0px 1px 5px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent), 
+        0px 6px 16px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 8%), transparent);
+        
 }
-nav.glass-nav:hover{
+
+.space{
+    position: fixed;
+    right: 25%;
+    list-style: none;
+    display: flex;
+    gap: 45%;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+
+
+}
+/* nav.glass-nav:hover{
     box-shadow: var(--after-shadow);
-}
+} */
 
 /* ---------- transform composition & float keyframes ----------
     Note: keyframes include CSS vars. JS manipulates --nav-parallax, --tilt-x, --tilt-y to compose motion.
@@ -163,7 +278,7 @@ nav.glass-nav:hover{
 ul.nav-menu {
     list-style: none;
     display: flex;
-    gap: 25%;
+    gap: 10%;
     align-items: center;
     margin: 0;
     padding: 0;
@@ -175,13 +290,14 @@ ul.nav-menu li {
 
 /* default var for stagger; JS sets better values on load */
 
-ul.nav-menu li a {
+ul.nav-menu li .a {
     display: inline-block;
     color: var(--fg);
     text-decoration: none;
+    font-size: 1.2rem;
     font-weight: 600;
     padding: 15% 25%;
-    border-radius: 20px;
+    border-radius: 50px;
     position: relative;
     transition: transform .28s var(--float-ease), color .22s ease, background .22s ease;
     will-change: transform, color;
@@ -189,7 +305,7 @@ ul.nav-menu li a {
 }
 
 /* subtle animated underline (scaleX) - GPU friendly */
-ul.nav-menu li a::after {
+ul.nav-menu li .a::after {
     content: "";
     position: absolute;
     left: 12%;
@@ -202,15 +318,17 @@ ul.nav-menu li a::after {
     transform-origin: left center;
     transition: transform .28s var(--float-ease);
     opacity: 0.95;
+    background: var(--bottom-line);
+
 }
 
-ul.nav-menu li a:hover::after,
-ul.nav-menu li a:focus::after {
+ul.nav-menu li .a:hover::after,
+ul.nav-menu li .a:focus::after {
     transform: scaleX(1);
 }
 
-ul.nav-menu li a:hover,
-ul.nav-menu li a:focus {
+ul.nav-menu li .a:hover,
+ul.nav-menu li .a:focus {
     color: var(--fg);
     transform: translateY(-4px) scale(1.02);
     background: var(--nav-btn-bg);
@@ -239,7 +357,7 @@ ul.nav-menu li a:focus {
 }
 
 /* ---------- mobile menu (animated via transform & opacity only) ---------- */
-@media (max-width: 1400px) {
+@media (max-width: 1000px) {
     .nav-wrap{
         display: none;
     }
@@ -346,7 +464,7 @@ body.reduced-effects nav.glass-nav::before {
 body.reduced-effects nav.glass-nav::after {
     opacity: 0.06
 }
-@media screen and (min-width:1400px){
+/* @media screen and (min-width:1400px){
     .space{
         margin-left: 105%;
     }
@@ -395,4 +513,91 @@ body.reduced-effects nav.glass-nav::after {
     .space{
         margin-left: 340%;
     }
-} 
+}  */
+
+
+
+
+.c-options {
+    text-decoration: none;
+    display: block;
+    background-color: var(--glass-bg);
+    width: 140%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin-top: 6%;
+    transition: all ease 0.4s;
+    border-radius: 20px;
+    color: var(--fg);
+    height: 35px;
+    background-color: color-mix(in srgb, var(--c-glass) 12%, transparent);
+    /* backdrop-filter: blur(8px) url(#switcher) saturate(var(--saturation)); */
+    /* -webkit-backdrop-filter: blur(8px) saturate(var(--saturation)); */
+    box-shadow: 
+        inset 0 0 0 1px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 10%), transparent),
+        inset 1.8px 3px 0px -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 90%), transparent), 
+        inset -2px -2px 0px -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 80%), transparent), 
+        inset -3px -8px 1px -6px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 60%), transparent), 
+        inset -0.3px -1px 4px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 12%), transparent), 
+        inset -1.5px 2.5px 0px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 20%), transparent), 
+        inset 0px 3px 4px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 20%), transparent), 
+        inset 2px -6.5px 1px -4px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent), 
+        0px 1px 5px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent), 
+        0px 6px 16px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 8%), transparent);
+        
+}
+.first{
+    margin-top: 0%;
+}
+
+.c-options:hover{
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); */
+    margin-left: 10%;
+    border-radius: 50px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block; /* so it only takes width of its contents */
+}
+
+/* The dropdown menu - hidden by default */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;  /* put it just below the trigger */
+    left: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 150px;
+    z-index: 1000;
+    border-radius: 20px;
+    background-color: var(--glass-bg);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding-right: 110%;
+    background-color: color-mix(in srgb, var(--c-glass) 12%, transparent);
+    /* backdrop-filter: blur(8px) url(#switcher) saturate(var(--saturation));
+    -webkit-backdrop-filter: blur(8px) saturate(var(--saturation)); */
+    box-shadow: 
+        inset 0 0 0 1px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 10%), transparent),
+        inset 1.8px 3px 0px -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 90%), transparent), 
+        inset -2px -2px 0px -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 80%), transparent), 
+        inset -3px -8px 1px -6px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 60%), transparent), 
+        inset -0.3px -1px 4px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 12%), transparent), 
+        inset -1.5px 2.5px 0px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 20%), transparent), 
+        inset 0px 3px 4px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 20%), transparent), 
+        inset 2px -6.5px 1px -4px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent), 
+        0px 1px 5px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent), 
+        0px 6px 16px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 8%), transparent);
+    
+}
+
+.dropdown-menu a {
+    padding: 8px 12px;
+}
+.dropdown-menu a:hover {
+    background-color: rgba(245, 245, 245, 0.2);
+}
+
+/* Show dropdown menu on hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
