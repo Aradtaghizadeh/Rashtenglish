@@ -98,60 +98,7 @@ body, button, input, textarea{
 }
 
 /* Toggle Switch */
-.toggle {
-    position: relative;
-    width: 100%;
-    height: 6%;
-    background: var(--bg-button);
-    border-radius: 150px;
-    margin-top: 60%;
-    cursor: pointer;
-    z-index: 1;
-    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
-    transition: background 1s ease;
-}
-.thumb {
-    position: absolute;
-    top: 10%;
-    left: 5%;
-    width: 35%;
-    height: 80%;
-    background: var(--thumb);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 1s ease, background 1s ease;
-}
-.thumb svg {
-    width: 80%;
-    height: 80%;
-    fill: currentColor;
-    transition: opacity 1s ease, transform 1s ease;
-    position: absolute;
-}
-.sun {
-    color: #f39c12;
-    opacity: 1;
-    transform: scale(1);
-}
-.moon {
-    color: #ecf0f1;
-    opacity: 0;
-    transform: scale(1);
-}
-[data-theme="dark"] .thumb {
-    transform: translateX(155%);
-    background: var(--thumb-night);
-}
-[data-theme="dark"] .sun {
-    opacity: 0;
-    transform: scale(0.5);
-}
-[data-theme="dark"] .moon {
-    opacity: 1;
-    transform: scale(1);
-}
+
 #welcome {
     font-size: 3rem;
     color: var(--fg);
@@ -176,13 +123,13 @@ body, button, input, textarea{
 .menu{
     position: fixed;
     top: 2%;
-    left: 3%;
+    right: 3%;
     height: 10%;
     width: 20%;
     cursor: pointer;
     z-index: 1001;
 }
-.menu .bar {
+.menu .bar1{
     width: 80%;
     background: rgba(255, 255, 255, 0.2); 
     border: 1px solid rgba(255, 255, 255, 0.3); /* Optional border */
@@ -191,6 +138,30 @@ body, button, input, textarea{
     margin: 15% 5%;
     transition: 0.3s;
     border-radius: 50px;
+
+}
+.menu .bar2{
+    width: 60%;
+    background: rgba(255, 255, 255, 0.2); 
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Optional border */
+    height: 8%;
+    background-color: var(--fg);
+    margin: 15% 25%;
+
+    transition: 0.3s;
+    border-radius: 50px;
+
+}
+.menu .bar3{
+    width: 40%;
+    background: rgba(255, 255, 255, 0.2); 
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Optional border */
+    height: 8%;
+    background-color: var(--fg);
+    margin: 15% 45%;
+    transition: 0.3s;
+    border-radius: 50px;
+
 }
 .menu.active .bar1 { 
     transform: rotate(45deg) translate(10%, 40%); 
@@ -199,20 +170,21 @@ body, button, input, textarea{
     opacity: 0; 
 }
 .menu.active .bar3 { 
-    transform: rotate(-45deg) translate(30%, -170%); 
+    transform: rotate(-45deg) translate(10%, -330%); 
+    width: 60%;
 }
 #sideMenu {
     position: fixed;
     top: 0;
-    left: -40%;
+    right: -40%;
     width: 25%;
     height: 100%;
     background: var(--bar-bg-color);
     box-shadow: 2px 0 5px rgba(0,0,0,0.2);
     padding: 10% 5%;
-    transition: left 0.3s ease;
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
+    transition: right 0.3s ease;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
     height: 80%;
     z-index: 1000;
     --bg-color: rgba(255, 255, 255, 0.25);
@@ -223,12 +195,12 @@ body, button, input, textarea{
     
 }
 #sideMenu.open {
-    left: 0;
+    right: 0;
 }
 #side {
     position: fixed;
     top: 0;
-    left: 0;
+    right: 0;
     width: 100%;
     height: 100%;
     backdrop-filter: blur(8px);
@@ -345,8 +317,8 @@ body, button, input, textarea{
     transition: all 0.4s ease;
 }
 .options button:hover {
-    background: var(--traslate-hover); 
-    border-radius: 70px;
+    background: rgba(34, 34, 68, 0.407); 
+    border-radius: 30px;
     margin-left: -0%;
 }
 .content-card { 
