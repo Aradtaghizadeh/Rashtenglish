@@ -21,13 +21,23 @@ body {
   font-optical-sizing: auto;
   background: var(--c-bg);
   color: var(--c-content);
-  --bottom-line: linear-gradient(90deg, #ffffff00, #224);
-
+  --bottom-line: linear-gradient(90deg, #ffffff00, #224, #ffffff00);
+  --translate-hover: rgba(34, 34, 68, 0.5);
   --play-img: url('../images/play2.png');
   --pause-img: url('../images/pause2.png');
   --search-img: url('../images/search-light.png');
   --account-pic: url('../images/account-day.png');
-
+  --box-shadow:
+        inset 0 0 0 1px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 10%), transparent),
+        inset 1.8px 3px 0px -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 90%), transparent), 
+        inset -2px -2px 0px -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 80%), transparent), 
+        inset -3px -8px 1px -6px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 60%), transparent), 
+        inset -0.3px -1px 4px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 12%), transparent), 
+        inset -1.5px 2.5px 0px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 20%), transparent), 
+        inset 0px 3px 4px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 20%), transparent), 
+        inset 2px -6.5px 1px -4px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent), 
+        0px 1px 5px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent), 
+        0px 6px 16px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 8%), transparent);
 
 
 
@@ -44,9 +54,10 @@ body:has(input[value="dark"]:checked) {
   --fg: #e1e1e1;
   --c-bg: #1b1b1d;
   --circle-bg: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent);
-  --bottom-line: linear-gradient(90deg, #ffffff00, #e1e1e1);
+  --bottom-line: linear-gradient(90deg, #ffffff00, #e1e1e1, #ffffff00);
   --glass-reflex-dark: 2;
   --glass-reflex-light: 0.3;
+  --translate-hover: rgba(34, 34, 68, 0.5);
   
   --saturation: 150%;
   --play-img: url('../images/play.png');
@@ -60,11 +71,11 @@ body:has(input[value="dim"]:checked) {
   --c-dark: #20001b;
   --c-glass: hsl(335 250% 74% / 1);
   --circle-bg: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent);
-  --bottom-line: linear-gradient(90deg, #ffffff00, #e1e1e1);
+  --bottom-line: linear-gradient(90deg, #ffffff00, #e1e1e1, #ffffff00);
   --c-content: #d5dbe2;
   --fg:#d5dbe2;
   --c-action: #ff48a9;
-  
+  --translate-hover: rgba(34, 34, 68, 0.5);
   --c-bg: #152433;
   
   --glass-reflex-dark: 2;
@@ -86,7 +97,7 @@ body:has(input[value="dim"]:checked) {
   display: flex;
   align-items: center;
   gap: 8px;
-  width: 244px;
+  width: 144px;
   max-width: 244px;
   height: 70px;
   box-sizing: border-box;
@@ -96,19 +107,10 @@ body:has(input[value="dim"]:checked) {
   border-radius: 99em;
   font-size: var(--fz);
   background-color: color-mix(in srgb, var(--c-glass) 12%, transparent);
-  backdrop-filter: blur(8px) url(#switcher) saturate(var(--saturation));
-  -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
-  box-shadow: 
-    inset 0 0 0 1px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 10%), transparent),
-    inset 1.8px 3px 0px -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 90%), transparent), 
-    inset -2px -2px 0px -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 80%), transparent), 
-    inset -3px -8px 1px -6px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 60%), transparent), 
-    inset -0.3px -1px 4px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 12%), transparent), 
-    inset -1.5px 2.5px 0px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 20%), transparent), 
-    inset 0px 3px 4px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 20%), transparent), 
-    inset 2px -6.5px 1px -4px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent), 
-    0px 1px 5px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent), 
-    0px 6px 16px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 8%), transparent);
+  backdrop-filter: blur(5px);
+  /* backdrop-filter: blur(20px) url(#switcher) saturate(var(--saturation));
+  -webkit-backdrop-filter: blur(8px) saturate(var(--saturation)); */
+  box-shadow: var(--box-shadow);
   transition: 
     background-color 400ms 
       cubic-bezier(1, 0.0, 0.4, 1),
