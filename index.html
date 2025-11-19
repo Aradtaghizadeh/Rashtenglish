@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rashtenglish</title>
-    <link rel="stylesheet" href="static/styles/style.css">
+    <link rel="stylesheet" href="../static/styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="static/images/rasht-english-logo.jpg">
-    <link rel="stylesheet" href="static/styles/nav.css">
-    <link rel="stylesheet" href="static/styles/day-night2.css">
+    <link rel="icon" href="../static/images/rasht-english-logo.jpg">
+    <link rel="stylesheet" href="../static/styles/nav.css">
+    <link rel="stylesheet" href="../static/styles/day-night2.css">
 </head>
 <body>
     
@@ -22,44 +22,70 @@
             <span class="bar" aria-hidden="true"></span>
             <span class="bar" aria-hidden="true"></span>
             </button>
-            <ul id="nav-menu" class="nav-menu" role="menubar" aria-hidden="false">
-            <img class="logo" src="static/images/rasht-english-logo-3.png" alt="">
+            <ul id="nav-menu" class="nav-menu" role="menubar" aria-hidden="false" style="margin-left: 10%;">
             <li role="none" style="--i:0"><a class="a" role="menuitem" href="/Rashtenglish/index.html">Home</a></li>
             <li role="none" style="--i:1" class="dropdown">
                 
-                <a class="a" role="menuitem" href="#about-us">Contact</a>
-                <div class="dropdown-menu">
+                <a class="a" role="menuitem" href="#" style="margin-left: 100%;">Contact</a>
+                <!-- <div class="dropdown-menu">
                     <a class="c-options first" href='https://t.me/rashtenglish5'>
                         <i id="telegram-icon" class="fa-brands fa-telegram"></i>     rashtenglish5</a>
                     <a class="c-options" href='https://wa.me/989379222166'>
                         <i id="whatsapp-icon" class="fa-brands fa-whatsapp"></i>     +98 937 922 2166</a>
                     <a class="c-options" href="https://instagram.com/rashtenglish?igsh=djq3MTA3YnNsdmpx">
                         <i id="instagram-icon" class="fa-brands fa-instagram"></i>     rashtenglish</a>
-                </div>
+                </div> -->
             </li>
             <div class="space">
-            <button class="communication-nav-btn" onclick="window.location.href='https://t.me/rashtenglish5'">
-            <i id="telegram-icon" class="fa-brands fa-telegram"></i></button>
-            <button class="communication-nav-btn" id="whatsapp" onclick="window.location.href='https://wa.me/989379222166'">
-            <i id="whatsapp-icon" class="fa-brands fa-whatsapp"></i></button>
-            <button class="communication-nav-btn" id="youtube" onclick="window.location.href='https://youtube.com/'">
-            <i id="youtube-icon" class="fa-brands fa-youtube"></i></button>
-            <button class="communication-nav-btn" id="insta" onclick="window.location.href='https://instagram.com/rashtenglish'">
-            <i id="instagram-icon" class="fa-brands fa-instagram"></i></button>
+                <li role="none" style="--i:1" class="dropdown">
+                    <a class="communication-nav-btn" href='https://t.me/rashtenglish5'>
+                    <i id="telegram-icon" class="fa-brands fa-telegram"></i></a>
+                    <div class="dropdown-menu">
+                    <a class="c-options" href='https://t.me/rashtenglish5'>
+                        <i id="telegram-icon" class="fa-brands fa-telegram"></i>     rashtenglish5</a>
+                </li>
+                <li role="none" style="--i:1" class="dropdown">
+                    
+                    <a class="communication-nav-btn" id="whatsapp" href='https://wa.me/989379222166'>
+                    <i id="whatsapp-icon" class="fa-brands fa-whatsapp"></i></a>
+                    <div class="dropdown-menu">
+                        <a class="c-options" href='https://wa.me/989379222166'>
+                        <i id="whatsapp-icon" class="fa-brands fa-whatsapp"></i>     +98 937 922 2166</a>
+                </li>
+                <li role="none" style="--i:1" class="dropdown">
+                    
+                    <a class="communication-nav-btn" id="insta" href='https://instagram.com/rashtenglish'>
+                    <i id="instagram-icon" class="fa-brands fa-instagram"></i></a>
+                    <div class="dropdown-menu">
+                        <a class="c-options" href="https://instagram.com/rashtenglish?igsh=djq3MTA3YnNsdmpx">
+                        <i id="instagram-icon" class="fa-brands fa-instagram"></i>     rashtenglish</a>
+                </li>
+                <li role="none" style="--i:1" class="dropdown">
+                    
+                    <a class="communication-nav-btn" id="youtube" href='https://youtube.com/'>
+                    <i id="youtube-icon" class="fa-brands fa-youtube"></i></a>
+            
+                    <div class="dropdown-menu">
+                        <a class="c-options" href="https://instagram.com/rashtenglish?igsh=djq3MTA3YnNsdmpx">
+                        <i id="youtube-icon" class="fa-brands fa-youtube"></i>     Rashtenglish</a>
+                </li>
+            
+            
+            
             <!-- <li role="none" style="--i:2">
                 <a class="nav-btn-text" role="menuitem" href="/login.html">Log in/Sign up</a></li> -->
             
             </div>
             <div class="account-div">
-            <button class="account-button" onclick="window.location.href='/Rashtenglish/login.html'">
-                <img class="account-img" src="static/images/account.png" alt="">
+            <button class="account-button" onclick="window.location.href='/Rashtenglish/profile.html'">
+                <img class="account-img" src="../static/images/account.png" alt="">
             </button></div>
             <!-- <li class="account-button" role="none" style="--i:2"><a class="a" role="menuitem" href="/login.html">
                 <img class="account-img" src="static/images/account.png" alt=""></a></li>
             </div> -->
             <div class="search-div">
                 <button class="search-button" onclick="window.location.href='/Rashtenglish/products.html'">
-                    <img class="search-img" src="static/images/search-night.png" alt="">
+                    <img class="search-img" src="../static/images/search-night.png" alt="">
                 </button>
             </div>
             
@@ -95,67 +121,78 @@
         <div class="bar bar2"></div>
         <div class="bar bar3"></div>
     </div>
-
     <div id="sideMenu">
         
-        <div class="toggle" id="toggle">
-            <div class="thumb">
-                <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><g stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></g></svg>
-                <svg class="moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 0 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+        <div class="glass-filter"></div>
+        <div class="glass-overlay"></div>
+        <div class="glass-specular"></div>
+        <div class="glass-content">
+            <div class="sidebar-header">
+            <img class="menu-logo" src="../static/images/rasht-english-logo-3.png" alt="">
             </div>
-        </div>
-
-        <div class="lang-switcher no-translate" id="langSwitcher" dir="ltr">
-            <button class="translate-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">English ▾</button>
-            <div class="options" id="langMenu" role="menu" aria-label="Select language">
-                <button type="button" data-lang="en" data-name="English" role="menuitem">English</button>
-                <button type="button" data-lang="fa" data-name="Persian" role="menuitem">Persian</button>
-                <button type="button" data-lang="de" data-name="German"  role="menuitem">German</button>
-            </div>
-        </div>
-
-        <button class="sidebtn" id="first-btn" onclick="window.location.href='login.html'">Log in</button><br>
-        <button class="sidebtn" href="#about-us">About us</button><br>
-        <button class="sidebtn" href="#">Services</button>
-    </div>
-    <p class="view" id="viewCounter">Loading...</p>
-    <div id="side" onclick="toggleMenu()"></div>
-    <div class="overlay no-translate" id="overlay">Translating…</div>
-    
-    <main class="content-card">
-        <h1 class="welcome">Welcome to</h1>
-        <h1 id="welcome" class="no-translate">Rashtenglish</h1>
-    </main>
-
-    <!-- <div class="about-us" id="about-us" dir="ltr">
-        <table cellspacing="0" cellpadding="0">
-        <tr> -->
-           
-        <!-- </tr>
-        <tr>
-            <td><button class="communication-button"  onclick="window.location.href='https://t.me/rashtenglish5'">
-            <i id="telegram-icon" class="fa-brands fa-telegram"></i></button>
-            <a class="links no-translate" id="telegram-a" href="https://t.me/rashtenglish5">rashtenglish5</a></td>
-        </tr>
-        <tr>
-            <td><button class="communication-button" id="whatsapp" onclick="window.location.href='https://wa.me/989379222166'">
-            <i id="whatsapp-icon" class="fa-brands fa-whatsapp"></i></button>
-            <a class="links" id="whatsapp-a" href="https://wa.me/989379222166">+98 937 922 2166</a></td>
-        </tr>
-        <tr>
-        <td><button class="communication-button" id="youtube" onclick="window.location.href='https://youtube.com/'">
-            <i id="youtube-icon" class="fa-brands fa-youtube"></i></button>
-            <a class="links no-translate" id="youtube-a" href="https://youtube.com/">Rashtenglish</a></td>
-        </tr>
-        <tr>
-            <td><button class="communication-button" id="insta" onclick="window.location.href='https://instagram.com/rashtenglish'">
-            <i id="instagram-icon" class="fa-brands fa-instagram"></i></button>
-            <a class="links no-translate" id="insta-a" href="https://instagram.com/rashtenglish?igsh=djq3MTA3YnNsdmpx">rashtenglish</a></td>
-        </tr>
-        </table>
-    </div> -->
+            <nav class="sidebar-nav">
+            <a href="/Rashtenglish/index.html" class="nav-item active">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="/Rashtenglish/profile.html" class="nav-item">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </a>
+            <a href="/Rashtenglish/login.html" class="nav-item">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Level check</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-tags"></i>
+                <span>Courses</span>
+            </a>
+            <a href="/Rashtenglish/products.html" class="nav-item">
+                <i class="fas fa-book-open"></i>
+                <span>Resources</span>
+            </a>
             
-    <fieldset class="switcher">
+            
+            <a href="#" class="nav-item">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+            <!-- <a href="#" class="nav-item">
+                <i class="fas fa-chart-bar"></i>
+                <span>Analytics</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-envelope"></i>
+                <span>Messages</span>
+            </a> -->
+            
+            <div class="no-translate" id="langSwitcher" dir="ltr">
+                <button class="nav-item translate-btn" id="langBtn">
+                    <i class="fas fa-language"></i>
+                    <span>English ▾</span>
+                </button>
+                
+                
+                <div class="options" id="langMenu" role="menu" aria-label="Select language">
+                    <button class="translate-btn" type="button" data-lang="en" data-name="English" role="menuitem">English</button>
+                    <button class="translate-btn" type="button" data-lang="fa" data-name="Persian" role="menuitem">Persian</button>
+                    <button class="translate-btn" type="button" data-lang="de" data-name="German"  role="menuitem">German</button>
+                </div>
+                <!-- <div class="dropdown-menu">
+                    <a class="c-options first" href='https://t.me/rashtenglish5'>
+                        <i id="telegram-icon" class="fa-brands fa-telegram"></i>     rashtenglish5</a>
+                    <a class="c-options" href='https://wa.me/989379222166'>
+                        <i id="whatsapp-icon" class="fa-brands fa-whatsapp"></i>     +98 937 922 2166</a>
+                    <a class="c-options" href="https://instagram.com/rashtenglish?igsh=djq3MTA3YnNsdmpx">
+                        <i id="instagram-icon" class="fa-brands fa-instagram"></i>     rashtenglish</a>
+                </div> -->
+            </div>
+            </nav>
+            </div>
+
+
+
+        <fieldset class="switcher">
     <legend class="switcher__legend">Choose theme</legend>
     <label class="switcher__option">
         <input class="switcher__input" type="radio" name="theme" value="light" c-option="1" checked/>
@@ -170,12 +207,12 @@
         <path fill="var(--c)" d="M12.5 8.473a10.968 10.968 0 0 1 8.785-.97 7.435 7.435 0 0 0-3.737 4.672l-.09.373A7.454 7.454 0 0 0 28.732 20.4a10.97 10.97 0 0 1-5.232 7.125l-.497.27c-5.014 2.566-11.175.916-14.234-3.813l-.295-.483C5.53 18.403 7.13 11.93 12.017 8.77l.483-.297Zm4.234.616a8.946 8.946 0 0 0-2.805.883l-.429.234A9 9 0 0 0 10.206 22.5l.241.395A9 9 0 0 0 22.5 25.794l.416-.255a8.94 8.94 0 0 0 2.167-1.99 9.433 9.433 0 0 1-2.782-.313c-5.043-1.352-8.036-6.535-6.686-11.578l.147-.491c.242-.745.573-1.44.972-2.078Z"/>
         </svg>
     </label>
-    <label class="switcher__option">
+    <!-- <label class="switcher__option">
         <input class="switcher__input" type="radio" name="theme" value="dim" c-option="3" />
         <svg class="switcher__icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 36 36">
         <path fill="var(--c)" d="M5 21a1 1 0 0 1 1-1h24a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1ZM12 25a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H13a1 1 0 0 1-1-1ZM15 29a1 1 0 0 1 1-1h4a1 1 0 1 1 0 2h-4a1 1 0 0 1-1-1ZM18 13a6 6 0 0 1 5.915 7h-2.041A4.005 4.005 0 0 0 18 15a4 4 0 0 0-3.874 5h-2.041A6 6 0 0 1 18 13ZM17 7.038a1 1 0 1 1 2 0v3a1 1 0 0 1-2 0v-3ZM24.244 8.742a1 1 0 1 1 1.618 1.176L24.1 12.345a1 1 0 1 1-1.618-1.176l1.763-2.427ZM29.104 14.379a1 1 0 0 1 .618 1.902l-2.854.927a1 1 0 1 1-.618-1.902l2.854-.927ZM6.278 16.28a1 1 0 1 1 .618-1.901l2.853.927a1 1 0 1 1-.618 1.902l-2.853-.927ZM10.137 9.918a1 1 0 0 1 1.618-1.176l1.764 2.427a1 1 0 0 1-1.618 1.176l-1.764-2.427Z"/>
         </svg>
-    </label>
+    </label> -->
     <!--   <div class="switcher__toggle"></div> -->
     <div class="switcher__filter">
         <svg>
@@ -209,12 +246,77 @@
         </svg>
     </div>
     </fieldset>
+    <div class="toggle" id="toggle"></div>   
+
+        <!-- <button class="sidebtn" id="first-btn" onclick="window.location.href='login.html'">Log in</button><br>
+        <button class="sidebtn" href="#about-us">About us</button><br>
+        <button class="sidebtn" href="#">Services</button> -->
+    </div>
+    <!-- <div id="sideMenu">
+        
+        <div class="toggle" id="toggle"></div>
+
+        <div class="lang-switcher no-translate" id="langSwitcher" dir="ltr">
+            <button class="translate-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">English ▾</button>
+            <div class="options" id="langMenu" role="menu" aria-label="Select language">
+                <button type="button" data-lang="en" data-name="English" role="menuitem">English</button>
+                <button type="button" data-lang="fa" data-name="Persian" role="menuitem">Persian</button>
+                <button type="button" data-lang="de" data-name="German"  role="menuitem">German</button>
+            </div>
+        </div>
+
+        <button class="sidebtn" id="first-btn" onclick="window.location.href='login.html'">Log in</button><br>
+        <button class="sidebtn" href="#about-us">About us</button><br>
+        <button class="sidebtn" href="#">Services</button>
+    </div> -->
+    <p class="view" id="viewCounter"></p>
+    <div id="side" onclick="toggleMenu()"></div>
+    <div class="overlay no-translate" id="overlay">Translating…</div>
+    
+
+
+
+
+
+    <main class="content-card">
+        <h1 class="welcome">Welcome to</h1>
+        <h1 id="welcome" class="no-translate">Rashtenglish</h1>
+    </main>
+
+    <!-- <div class="about-us" id="about-us" dir="ltr">
+        <table cellspacing="0" cellpadding="0">
+        <tr> -->
+           
+        <!-- </tr>
+        <tr>
+            <td><button class="communication-button"  onclick="window.location.href='https://t.me/rashtenglish5'">
+            <i id="telegram-icon" class="fa-brands fa-telegram"></i></button>
+            <a class="links no-translate" id="telegram-a" href="https://t.me/rashtenglish5">rashtenglish5</a></td>
+        </tr>
+        <tr>
+            <td><button class="communication-button" id="whatsapp" onclick="window.location.href='https://wa.me/989379222166'">
+            <i id="whatsapp-icon" class="fa-brands fa-whatsapp"></i></button>
+            <a class="links" id="whatsapp-a" href="https://wa.me/989379222166">+98 937 922 2166</a></td>
+        </tr>
+        <tr>
+        <td><button class="communication-button" id="youtube" onclick="window.location.href='https://youtube.com/'">
+            <i id="youtube-icon" class="fa-brands fa-youtube"></i></button>
+            <a class="links no-translate" id="youtube-a" href="https://youtube.com/">Rashtenglish</a></td>
+        </tr>
+        <tr>
+            <td><button class="communication-button" id="insta" onclick="window.location.href='https://instagram.com/rashtenglish'">
+            <i id="instagram-icon" class="fa-brands fa-instagram"></i></button>
+            <a class="links no-translate" id="insta-a" href="https://instagram.com/rashtenglish?igsh=djq3MTA3YnNsdmpx">rashtenglish</a></td>
+        </tr>
+        </table>
+    </div> -->
+            
+
     <button id="topButton" onclick="scrollToTop()">Top</button>
 
-    <script src="static/js/nav.js"></script>
-    <script src="static/js/script.js"></script>
-    <script src="static/js/day-night2.js"></script>
+    <script src="../static/js/nav.js"></script>
+    <script src="../static/js/script.js"></script>
+    <script src="../static/js/day-night2.js"></script>
     
 </body>
 </html>
-
