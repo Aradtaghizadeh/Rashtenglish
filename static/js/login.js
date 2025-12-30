@@ -1,19 +1,3 @@
-// document.getElementById('submitBtn').addEventListener('click', function() {
-//   const name = document.getElementById('name').value;
-//   const age  = document.getElementById('age').value;
-  
-//   // Create a data object
-//   const profileData = {
-//     name: name,
-//     age: age
-//     // add more fields as needed
-//   };
-  
-//   // Save to localStorage (stringify since localStorage stores strings)
-//   localStorage.setItem('myProfileData', JSON.stringify(profileData));
-//   // Then redirect to profile page (or next step)
-//   window.location.href = '/Rashtenglish/profile.html';  // adjust path
-// });
 document.addEventListener('DOMContentLoaded', function() {
       const form = document.getElementById('login');
       const userName = document.getElementById('name');
