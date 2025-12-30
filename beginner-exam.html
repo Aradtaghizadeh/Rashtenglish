@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beginner-Exam</title>
+    <title>Beginner Exam | RashtEnglish</title>
     <link rel="stylesheet" href="./static/styles/style.css">
     <link rel="stylesheet" href="./static/styles/exam.css">
     <link rel="stylesheet" href="./static/styles/day-night2.css">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -28,7 +28,7 @@
         <div class="glass-specular"></div>
         <div class="glass-content">
             <div class="sidebar-header">
-            <img class="menu-logo" src="../static/images/rasht-english-logo-3.png" alt="">
+            <img class="menu-logo" src="./static/images/rasht-english-logo-3.png" alt="">
             </div>
             <nav class="sidebar-nav">
             <a href="/Rashtenglish/index.html" class="nav-item">
@@ -40,17 +40,27 @@
                 <span>Profile</span>
             </a>
             <a href="/Rashtenglish/login.html" class="nav-item active">
-                <i class="fas fa-graduation-cap"></i>
+                <i class="fas fa-chart-line"></i>
                 <span>Level check</span>
             </a>
-            <a href="#" class="nav-item">
+            <li class="dropdown-side nav-item">
                 <i class="fas fa-tags"></i>
                 <span>Courses</span>
-            </a>
-            <a href="/Rashtenglish/products.html" class="nav-item">
+                <div class="dropdown-menu-side">
+                <a class="select-options" href='./english-courses.html' style="margin-top: 2%;">English</a>
+                <a class="select-options" href='./german-courses.html' style="margin-top: 1%;">German</a>
+                </div>
+            </li>
+            <li class="dropdown-side nav-item">
                 <i class="fas fa-book-open"></i>
                 <span>Resources</span>
-            </a>
+                <div class="dropdown-menu-side">
+                <a class="select-options" href='./adult.html' style="margin-top: 2%; width: 150px;">Adult</a>
+                <a class="select-options" href='./teenager&child.html' style="margin-top: 1%; width: 150px;">Teen&child</a>
+                <a class="select-options" href='./vocab&gram.html' style="margin-top: 1%; width: 150px; font-size: 0.9rem; padding-top: 9%; border-radius: 50px;">Vocabulary&Grammar</a>
+                <a class="select-options" href='./ielts.html' style="margin-top: 1%; width: 150px;">IELTS</a>
+                </div>
+            </li>
             
             
             <a href="#" class="nav-item">
@@ -66,27 +76,7 @@
                 <span>Messages</span>
             </a> -->
             
-            <div class="no-translate" id="langSwitcher" dir="ltr">
-                <button class="nav-item translate-btn" id="langBtn">
-                    <i class="fas fa-language"></i>
-                    <span>English ▾</span>
-                </button>
-                
-                
-                <div class="options" id="langMenu" role="menu" aria-label="Select language">
-                    <button class="translate-btn" type="button" data-lang="en" data-name="English" role="menuitem">English</button>
-                    <button class="translate-btn" type="button" data-lang="fa" data-name="Persian" role="menuitem">Persian</button>
-                    <button class="translate-btn" type="button" data-lang="de" data-name="German"  role="menuitem">German</button>
-                </div>
-                <!-- <div class="dropdown-menu">
-                    <a class="c-options first" href='https://t.me/rashtenglish5'>
-                        <i id="telegram-icon" class="fa-brands fa-telegram"></i>     rashtenglish5</a>
-                    <a class="c-options" href='https://wa.me/989379222166'>
-                        <i id="whatsapp-icon" class="fa-brands fa-whatsapp"></i>     +98 937 922 2166</a>
-                    <a class="c-options" href="https://instagram.com/rashtenglish?igsh=djq3MTA3YnNsdmpx">
-                        <i id="instagram-icon" class="fa-brands fa-instagram"></i>     rashtenglish</a>
-                </div> -->
-            </div>
+            
             </nav>
             </div>
 
@@ -434,15 +424,19 @@
         </div>
         <label class="title-label">Questions:</label>
         <h2 class="question">1.Where does Anna live?</h2>
-        <input class="answer" placeholder="Enter your answer..."></input>
+        <input class="answer" name="r1" placeholder="Enter your answer...">
+
         <h2 class="question">2.How old is Anna?</h2>
-        <input class="answer" placeholder="Enter your answer..."></input>
+        <input class="answer" name="r2" placeholder="Enter your answer...">
+
         <h2 class="question">3.What does her brother do?</h2>
-        <input class="answer" placeholder="Enter your answer..."></input>
+        <input class="answer" name="r3" placeholder="Enter your answer...">
+
         <h2 class="question">4.What do they like to do?</h2>
-        <input class="answer" placeholder="Enter your answer..."></input>
+        <input class="answer" name="r4" placeholder="Enter your answer...">
+
         <h2 class="question">5.Is her family big?</h2>
-        <input class="answer" placeholder="Enter your answer..."></input>
+        <input class="answer" name="r5" placeholder="Enter your answer...">
     </div>
 <!-- Listening -->
     <div class="question-frame">
@@ -450,31 +444,36 @@
             <label class="question-title">Listening</label>
         </div>
         <div class="audio-container">
-            <div class="audio-bar2 hidden" id="audioBar2">
-                <div id="audioBar2" class="hidden">
-                    <button class="play-btn2" id="playPauseBtn2"></button>
-                    <audio id="player2" controls></audio>
-                    <div id="playTime2">00:00 / 00:00</div>
-                    <div id="timeBarContainer2">
-                        <div id="timeBarProgress2"></div>
-                    </div>
+            <div class="audio-bar2" id="audioBar2">
+                <button class="play-btn2" id="playPauseBtn2"></button>
+                <audio id="player2">
+                    <source src="./static/audio/basic.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <div id="playTime2">00:00 / 00:00</div>
+                <div id="timeBarContainer2">
+                    <div id="timeBarProgress2"></div>
                 </div>
             </div>
         </div>
         <label class="title-label">Questions:</label>
         <h2 class="question">1.What is his name?</h2>
-        <input class="answer" placeholder="Enter your answer..."></input>
+        <input class="answer" name="l1" placeholder="Enter your answer...">
+
         <h2 class="question">2.Where is he from?</h2>
-        <input class="answer" placeholder="Enter your answer..."></input>
+        <input class="answer" name="l2" placeholder="Enter your answer...">
+
         <h2 class="question">3.How old is he?</h2>
-        <input class="answer" placeholder="Enter your answer..."></input>
+        <input class="answer" name="l3" placeholder="Enter your answer...">
+
         <h2 class="question">4.What hobby does he have?</h2>
-        <input class="answer" placeholder="Enter your answer..."></input>
+        <input class="answer" name="l4" placeholder="Enter your answer...">
+
         <h2 class="question">5.What instrument does he play?</h2>
-        <input class="answer" placeholder="Enter your answer..."></input>
+        <input class="answer" name="l5" placeholder="Enter your answer...">
     </div>
 <!-- Speaking -->
-    <div class="question-frame">
+    <!-- <div class="question-frame">
         <div class="title-div">
             <label class="question-title">Speaking</label>
         </div>
@@ -482,7 +481,7 @@
         <h2 class="question">Introduce yourself. Say your name, where you live, and two things you like.</h2>
 
         <div class="card" role="application" aria-label="Voice recorder">
-            <!-- <div class="hint">Hold to record • Slide up to lock • Slide left to cancel</div> -->
+            <div class="hint">Hold to record • Slide up to lock • Slide left to cancel</div>
 
 
 
@@ -513,24 +512,11 @@
                         <div id="timeBarProgress"></div>
                     </div>
                 </div>
-                
-                <!-- <div class="audio-controls">
-                <span id="playTime">00:00 / 00:00</span>
-                <label>
-                    Speed:
-                    <select id="playSpeed">
-                    <option value="0.5">0.5×</option>
-                    <option value="1" selected>1×</option>
-                    <option value="1.5">1.5×</option>
-                    <option value="2">2×</option>
-                    </select>
-                </label>
-                </div> -->
             </div>
 
             <div class="status" id="status">Ready — hold to record</div>
         </div>
-    </div>
+    </div> -->
 
     <div class="question-frame">
         <div class="title-div">
@@ -538,15 +524,37 @@
         </div>
         <h2 class="bolded-title">Task:</h2>
         <h2 class="question">Write about your best friends (50-80 words). Say what their name is, how old they are, and what they like.</h2>
-        <textarea class="writing"></textarea>
+        <textarea class="writing" id="q1" name="q1"></textarea>
 
     </div>
 
-    <button class="button done" type="submit">Done</button>
+    <button class="button done" type="submit" id="doneBtn">Done</button>
+    <script>
+    document.getElementById("doneBtn").addEventListener("click", function () {
+
+        let answers = {};
+
+        document.querySelectorAll("input, textarea, select").forEach(el => {
+
+            if (!el.name) return;
+
+            if (el.type === "radio" || el.type === "checkbox") {
+                if (el.checked) answers[el.name] = el.value;
+            } else {
+                answers[el.name] = el.value;
+            }
+        });
+
+        localStorage.setItem("examAnswers", JSON.stringify(answers));
+        window.location.href = "review.html";
+    });
+    </script>
+
+
     <button id="topButton" onclick="scrollToTop()">Top</button>
     <script src="./static/js/exam.js"></script>
     <script src="./static/js/script.js"></script>
-
-    
+    <script src="./static/js/combined.js"></script>
+    <script src="./static/js/day-night2.js"></script>
 </body>
 </html>
