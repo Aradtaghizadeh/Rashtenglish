@@ -100,7 +100,10 @@ const DICTIONARY = {
     "Grammar":"گرامر",
     "Cold":"سرد",
     "Cup":"استکان",
-    "Apple":"سیب"
+    "Apple":"سیب",
+    "Contact": "ارتباط",
+    "Resources":"منابع",
+    "Level check":"تعیین سطح",
   },
   de: {
     "Enter your name...": "Geben Sie Ihren Namen ein...",
@@ -277,68 +280,68 @@ document.addEventListener('click', (e) => {
 //     return;  // Stop further execution
 //     }
 
- document.addEventListener('DOMContentLoaded', function() {
-      const form = document.getElementById('login');
-      const userName = document.getElementById('name');
-      const userAge = document.getElementById('age');
+//  document.addEventListener('DOMContentLoaded', function() {
+//       const form = document.getElementById('login');
+//       const userName = document.getElementById('name');
+//       const userAge = document.getElementById('age');
       
-      // 1⃣ Pre-fill form from URL parameters using URLSearchParams
-      const params = new URLSearchParams(window.location.search);
-      const pName = params.get('name');
-      const pAge = params.get('age');
-      const pLevel = params.get('level');
+//       // 1⃣ Pre-fill form from URL parameters using URLSearchParams
+//       const params = new URLSearchParams(window.location.search);
+//       const pName = params.get('name');
+//       const pAge = params.get('age');
+//       const pLevel = params.get('level');
 
-      if (pName) userName.value = decodeURIComponent(pName);
-      if (pAge) userAge.value = decodeURIComponent(pAge);
-      if (pLevel) {
-        const radio = document.querySelector(`input[name="level"][value="${pLevel}"]`);
-        if (radio) radio.checked = true;
-      }
+//       if (pName) userName.value = decodeURIComponent(pName);
+//       if (pAge) userAge.value = decodeURIComponent(pAge);
+//       if (pLevel) {
+//         const radio = document.querySelector(`input[name="level"][value="${pLevel}"]`);
+//         if (radio) radio.checked = true;
+//       }
 
-      // 2⃣ Submit handler with validation and redirect
-      form.addEventListener('submit', function(event) {
-        event.preventDefault();  // Prevent native form submission
+//       // 2⃣ Submit handler with validation and redirect
+//       form.addEventListener('submit', function(event) {
+//         event.preventDefault();  // Prevent native form submission
 
-        const name = userName.value.trim();
-        const age = userAge.value.trim();
-        const selected = document.querySelector('input[name="level"]:checked').value;
+//         const name = userName.value.trim();
+//         const age = userAge.value.trim();
+//         const selected = document.querySelector('input[name="level"]:checked').value;
 
-        if (!name && !age) {
-          userName.classList.add('error');
-          userAge.classList.add('error');
-          userName.focus();
-          alert('Please fill your info.');
-          return;
-        }
-        if (!name) {
-          userName.classList.add('error');
-          userName.focus();
-          alert('Please fill your name.');
-          return;
-        }
-        if (!age) {
-          userAge.classList.add('error');
-          userAge.focus();
-          alert('Please fill your age.');
-          return;
-        }
+//         if (!name && !age) {
+//           userName.classList.add('error');
+//           userAge.classList.add('error');
+//           userName.focus();
+//           alert('Please fill your info.');
+//           return;
+//         }
+//         if (!name) {
+//           userName.classList.add('error');
+//           userName.focus();
+//           alert('Please fill your name.');
+//           return;
+//         }
+//         if (!age) {
+//           userAge.classList.add('error');
+//           userAge.focus();
+//           alert('Please fill your age.');
+//           return;
+//         }
 
-        console.log('Redirecting to:', selected);
-        window.location.href = selected;
-      });
+//         console.log('Redirecting to:', selected);
+//         window.location.href = selected;
+//       });
 
-      // 3⃣ Clear error styling as users type
-      userName.addEventListener('input', () => {
-        if (userName.classList.contains('error') && userName.value.trim()) {
-          userName.classList.remove('error');
-        }
-      });
-      userAge.addEventListener('input', () => {
-        if (userAge.classList.contains('error') && userAge.value.trim()) {
-          userAge.classList.remove('error');
-        }
-      });
-    });
+//       // 3⃣ Clear error styling as users type
+//       userName.addEventListener('input', () => {
+//         if (userName.classList.contains('error') && userName.value.trim()) {
+//           userName.classList.remove('error');
+//         }
+//       });
+//       userAge.addEventListener('input', () => {
+//         if (userAge.classList.contains('error') && userAge.value.trim()) {
+//           userAge.classList.remove('error');
+//         }
+//       });
+//     });
 
 
 
