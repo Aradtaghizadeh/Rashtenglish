@@ -54,7 +54,6 @@
     const target = e.currentTarget;
     const rect = target.getBoundingClientRect();
     const r = Math.max(rect.width, rect.height) * 0.9;
-    const x = e.clientX - rect.left - r/2;
     const y = e.clientY - rect.top - r/2;
     const span = document.createElement('span');
     span.className = 'ripple';
@@ -99,7 +98,7 @@
   window.addEventListener('scroll', onScroll, {passive:true});
 
   // Pointer tilt (fine pointers only) - subtle and smoothed
-  let tiltX = 0, tiltY = 0, targetX = 0, targetY = 0, rafId;
+  let tiltY = 0, targetY = 0, rafId;
   const supportTilt = window.matchMedia('(hover: hover) and (pointer: fine)').matches && !prefersReduced && !lowPower;
 
   if(supportTilt){
@@ -111,24 +110,18 @@
       const dy = (e.clientY - cy) / (r.height/2); // -1..1
       // max tilt 6deg * gentle factor
       targetY = (-dx * 6).toFixed(2) + 'deg';
-      targetX = (dy * 5).toFixed(2) + 'deg';
     });
     nav.addEventListener('pointerleave', () => {
-      targetX = '0deg';
       targetY = '0deg';
     });
 
     // smoothing loop
     function tiltLoop(){
       // lerp towards target
-      const curX = parseFloat(tiltX) || 0;
       const curY = parseFloat(tiltY) || 0;
-      const tX = parseFloat(targetX) || 0;
       const tY = parseFloat(targetY) || 0;
-      const newX = curX + (tX - curX) * 0.14;
       const newY = curY + (tY - curY) * 0.14;
-      tiltX = newX; tiltY = newY;
-      nav.style.setProperty('--tilt-x', newX.toFixed(2) + 'deg');
+      tiltY = newY;
       nav.style.setProperty('--tilt-y', newY.toFixed(2) + 'deg');
       rafId = requestAnimationFrame(tiltLoop);
     }
