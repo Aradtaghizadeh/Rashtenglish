@@ -4,7 +4,7 @@
 }
 .card-container {
     position: relative;
-    width: 70%;
+    width: 50%;
     height: 300px;
     cursor: pointer;
     perspective: 1000px;
