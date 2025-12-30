@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>دوره‌های آموزشی</title>
+  <style>
+    body {font-family: Tahoma; background:#f9f9f9; text-align:center;}
+    .course {border:1px solid #ccc; padding:20px; margin:20px; background:#fff;}
+    .locked {color:red; font-weight:bold;}
+    video {width:80%; max-width:600px;}
+    button {padding:10px 20px; background:#28a745; color:#fff; border:none; cursor:pointer;}
+  </style>
+</head>
+<body>
+
+  <h1>German Courses</h1>
+
+  <!-- بخش معرفی دوره -->
+  <div class="course">
+    <h2>دوره آموزش HTML</h2>
+    <p>قیمت: 200,000 تومان</p>
+
+    <!-- اگر کاربر نخریده -->
+    <div id="locked">
+      <p class="locked">این ویدئو قفل است. برای مشاهده باید خرید کنید.</p>
+      <button onclick="goToPayment()">خرید دوره</button>
+    </div>
+
+    <!-- اگر کاربر خریده -->
+    <div id="unlocked" style="display:none;">
+      <video controls controlsList="nodownload">
+        <source src="video-html.mp4" type="video/mp4">
+        مرورگر شما از ویدئو پشتیبانی نمی‌کند.
+      </video>
+    </div>
+  </div>
+
+  <script>
+    // شبیه‌سازی وضعیت خرید
+    let hasPurchased = false; // این مقدار بعد از پرداخت باید true بشه
+
+    function goToPayment(){
+      window.location.href = "payment.html";
+      hasPurchased = true;
+      document.getElementById("locked").style.display="none";
+      document.getElementById("unlocked").style.display="block";
+    }
+  </script>
+
+</body>
+</html>
