@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Login | RashtEnglish</title>
     <link rel="stylesheet" href="./static/styles/style.css">
     <link rel="stylesheet" href="./static/styles/exam.css">
     <link rel="stylesheet" href="./static/styles/nav.css">
@@ -86,8 +86,16 @@
                 <img class="account-img" src="static/images/account.png" alt=""></a></li>
             </div> -->
             <div class="search-div">
-                <button class="search-button" onclick="window.location.href='/Rashtenglish/products.html'">
-                    <img class="search-img" src="./static/images/search-night.png" alt="">
+                <button class="dropdown-side search-button">
+                  
+                        <img class="search-img" src="./static/images/search-night.png" alt="">
+                    
+                        <div class="dropdown-menu-side">
+                        <a class="select-options" href='./adult.html' style="margin-top: 2%; width: 150px;">Adult</a>
+                        <a class="select-options" href='./teenager&child.html' style="margin-top: 1%; width: 150px;">Teen&child</a>
+                        <a class="select-options" href='./vocab&gram.html' style="margin-top: 1%; width: 150px; font-size: 0.9rem; padding-top: 9%; border-radius: 50px;">Vocabulary&Grammar</a>
+                        <a class="select-options" href='./ielts.html' style="margin-top: 1%; width: 150px;">IELTS</a>
+                        </div>
                 </button>
             </div>
             
@@ -119,7 +127,7 @@
 
 
 
-    <div class="menu" onclick="toggleMenu(this)">
+    <div class="menu" onclick="toggleMenu(this)" dir="ltr">
         
         <div class="bar bar1"></div>
         <div class="bar bar2"></div>
@@ -149,7 +157,7 @@
         <div class="glass-specular"></div>
         <div class="glass-content">
             <div class="sidebar-header">
-            <img class="menu-logo" src="../static/images/rasht-english-logo-3.png" alt="">
+            <img class="menu-logo" src="./static/images/rasht-english-logo-3.png" alt="">
             </div>
             <nav class="sidebar-nav">
             <a href="/Rashtenglish/index.html" class="nav-item">
@@ -161,32 +169,46 @@
                 <span>Profile</span>
             </a>
             <a href="/Rashtenglish/login.html" class="nav-item active">
-                <i class="fas fa-graduation-cap"></i>
+                <i class="fas fa-chart-line"></i>
                 <span>Level check</span>
             </a>
-            <a href="#" class="nav-item">
+            <li class="dropdown-side nav-item">
                 <i class="fas fa-tags"></i>
                 <span>Courses</span>
-            </a>
-            <a href="/Rashtenglish/products.html" class="nav-item">
+                <div class="dropdown-menu-side">
+                <a class="select-options" href='./english-courses.html' style="margin-top: 2%;">English</a>
+                <a class="select-options" href='./german-courses.html' style="margin-top: 1%;">German</a>
+                </div>
+            </li>
+
+
+
+            <li class="dropdown-side nav-item">
                 <i class="fas fa-book-open"></i>
                 <span>Resources</span>
-            </a>
+                <div class="dropdown-menu-side">
+                <a class="select-options" href='./adult.html' style="margin-top: 2%; width: 150px;">Adult</a>
+                <a class="select-options" href='./teenager&child.html' style="margin-top: 1%; width: 150px;">Teen&child</a>
+                <a class="select-options" href='./vocab&gram.html' style="margin-top: 1%; width: 150px; font-size: 0.9rem; padding-top: 9%; border-radius: 50px;">Vocabulary&Grammar</a>
+                <a class="select-options" href='./ielts.html' style="margin-top: 1%; width: 150px;">IELTS</a>
+                </div>
+            </li>
             
             
             <a href="#" class="nav-item">
                 <i class="fas fa-cog"></i>
                 <span>Settings</span>
             </a>
+            
             <!-- <a href="#" class="nav-item">
                 <i class="fas fa-chart-bar"></i>
                 <span>Analytics</span>
-            </a> -->
-            <!-- <a href="#" class="nav-item">
+            </a>
+            <a href="#" class="nav-item">
                 <i class="fas fa-envelope"></i>
                 <span>Messages</span>
-            </a>
-             -->
+            </a> -->
+            
             <div class="no-translate" id="langSwitcher" dir="ltr">
                 <button class="nav-item translate-btn" id="langBtn">
                     <i class="fas fa-language"></i>
