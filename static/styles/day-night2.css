@@ -23,10 +23,10 @@ body {
   color: var(--c-content);
   --bottom-line: linear-gradient(90deg, #ffffff00, #224, #ffffff00);
   --translate-hover: rgba(34, 34, 68, 0.5);
-  --play-img: url('../images/play2.png');
-  --pause-img: url('../images/pause2.png');
-  --search-img: url('../images/search-light.png');
-  --account-pic: url('../images/account-day.png');
+  --play-img: url('../images/play-day.svg');
+  --pause-img: url('../images/pause-day.svg');
+  --search-img: url('../images/search-day.svg');
+  --account-pic: url('../images/account-day.svg');
   --box-shadow:
         inset 0 0 0 1px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 10%), transparent),
         inset 1.8px 3px 0px -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 90%), transparent), 
@@ -60,10 +60,10 @@ body:has(input[value="dark"]:checked) {
   --translate-hover: rgba(34, 34, 68, 0.5);
   
   --saturation: 150%;
-  --play-img: url('../images/play.png');
-  --pause-img: url('../images/pause.png');
-  --search-img: url('../images/search-night.png');
-  --account-pic: url('../images/account.png');
+  --play-img: url('../images/play.svg');
+  --pause-img: url('../images/pause.svg');
+  --search-img: url('../images/search.svg');
+  --account-pic: url('../images/account.svg');
 }
 
 body:has(input[value="dim"]:checked) {
@@ -271,6 +271,7 @@ body:has(input[value="dim"]:checked) {
   50% { scale: 1.1 1; }
   100% { scale: 1 1; }
 }
+
 
 
 
