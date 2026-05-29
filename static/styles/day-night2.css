@@ -27,6 +27,12 @@ body {
   --pause-img: url('../images/pause-day.svg');
   --search-img: url('../images/search-day.svg');
   --account-pic: url('../images/account-day.svg');
+  --seek-back-img: url('../images/seek-back-day.svg');
+  --seek-forward-img: url('../images/seek-forward-day.svg');
+  --fullscreen-img: url('../images/fullscreen-day.svg');
+  --minimize-img: url('../images/minimize-day.svg');
+  --speed-img: url('../images/speed-day.svg');
+
   --box-shadow:
         inset 0 0 0 1px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 10%), transparent),
         inset 1.8px 3px 0px -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 90%), transparent), 
@@ -64,8 +70,22 @@ body:has(input[value="dark"]:checked) {
   --pause-img: url('../images/pause.svg');
   --search-img: url('../images/search.svg');
   --account-pic: url('../images/account.svg');
-}
+  --seek-back-img: url('../images/seek-back-night.svg');
+  --seek-forward-img: url('../images/seek-forward-night.svg');
+  --fullscreen-img: url('../images/fullscreen-night.svg');
+  --minimize-img: url('../images/minimize-night.svg');
+  --speed-img: url('../images/speed-night.svg');
 
+  
+}
+.icon {
+    width: 15px;
+    height: 15px;
+    background: var(--icon) center / contain no-repeat;
+    display: inline-block;
+    gap: 1px;
+
+}
 body:has(input[value="dim"]:checked) {
   --c-light: #99deff;
   --c-dark: #20001b;
@@ -271,6 +291,7 @@ body:has(input[value="dim"]:checked) {
   50% { scale: 1.1 1; }
   100% { scale: 1 1; }
 }
+
 
 
 
