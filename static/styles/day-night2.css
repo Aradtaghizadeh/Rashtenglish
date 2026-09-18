@@ -2,6 +2,7 @@
 
 
 body {
+  --noise-opacity: 0.035;
   --c-glass: #bbbbbc;
   --c-light: #fff;
   --c-dark: #000;
@@ -10,6 +11,11 @@ body {
   --c-action: #0052f5;
   --circle-bg: radial-gradient(circle, rgba(0, 11, 65, 0.3), transparent);
   --c-bg: #E8E8E9;
+
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  isolation: isolate;
   
   --glass-reflex-dark: 1;
   --glass-reflex-light: 1;
@@ -50,8 +56,90 @@ body {
 
   transition: background 400ms cubic-bezier(1, 0.0, 0.4, 1), color 400ms cubic-bezier(1, 0.0, 0.4, 1);
 }
+/* =========================================
+   GLOBAL ANIMATED BACKGROUND
+   ========================================= */
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Large glowing blobs */
+body::before {
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(0, 82, 245, 0.20),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 85% 25%,
+      rgba(0, 210, 255, 0.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 50% 90%,
+      rgba(100, 60, 255, 0.16),
+      transparent 35%
+    );
+
+  filter: blur(35px);
+  animation: backgroundGlow 14s ease-in-out infinite alternate;
+}
+
+/* Subtle moving light */
+body::after {
+  background:
+    radial-gradient(
+      circle at 30% 70%,
+      rgba(255, 255, 255, 0.22),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      rgba(0, 82, 245, 0.12),
+      transparent 25%
+    );
+
+  filter: blur(60px);
+  animation: backgroundFloat 18s ease-in-out infinite alternate;
+}
+
+@keyframes backgroundGlow {
+  0% {
+    transform: translate3d(-3%, -2%, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(3%, 2%, 0) scale(1.08);
+  }
+
+  100% {
+    transform: translate3d(-2%, 4%, 0) scale(1.03);
+  }
+}
+
+@keyframes backgroundFloat {
+  0% {
+    transform: translate3d(4%, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(-3%, -4%, 0) scale(1.12);
+  }
+
+  100% {
+    transform: translate3d(2%, 3%, 0) scale(1.05);
+  }
+}
 
 body:has(input[value="dark"]:checked) {
+  
   --c-glass: #bbbbbc;
   --c-light: #fff;
   --c-dark: #000;
@@ -77,6 +165,37 @@ body:has(input[value="dark"]:checked) {
   --speed-img: url('../images/speed-night.svg');
 
   
+}
+body:has(input[value="dark"]:checked)::before {
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(3, 213, 255, 0.18),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 85% 25%,
+      rgba(0, 82, 245, 0.16),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 50% 90%,
+      rgba(100, 60, 255, 0.14),
+      transparent 35%
+    );
+}
+body:has(input[value="dark"]:checked)::after {
+  background:
+    radial-gradient(
+      circle at 30% 70%,
+      rgba(255, 255, 255, 0.06),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      rgba(3, 213, 255, 0.10),
+      transparent 25%
+    );
 }
 .icon {
     width: 15px;
@@ -274,22 +393,33 @@ body:has(input[value="dim"]:checked) {
 }
 
 
-@keyframes scaleToggle {
-  0% { scale: 1 1; }
-  50% { scale: 1.1 1; }
-  100% { scale: 1 1; }
+.switcher::after{
+    transition:
+        translate .45s cubic-bezier(.22,1,.36,1),
+        background-color .4s,
+        box-shadow .4s;
 }
 
-@keyframes scaleToggle2{
-  0% { scale: 1 1; }
-  50% { scale: 1.2 1; }
-  100% { scale: 1 1; }
-} 
+@keyframes blobMove{
+    0%{
+        transform:scaleX(1);
+    }
+    25%{
+        transform:scaleX(1.35);
+    }
+    55%{
+        transform:scaleX(.9);
+    }
+    75%{
+        transform:scaleX(1.08);
+    }
+    100%{
+        transform:scaleX(1);
+    }
+}
 
-@keyframes scaleToggle3 {
-  0% { scale: 1 1; }
-  50% { scale: 1.1 1; }
-  100% { scale: 1 1; }
+.switcher:has(input:checked)::after{
+    animation:blobMove .55s cubic-bezier(.22,1,.36,1);
 }
 
 

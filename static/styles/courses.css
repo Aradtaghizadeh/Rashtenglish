@@ -1,0 +1,792 @@
+body {
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 1s ease-in-out; /* Added animation to body */
+    background: linear-gradient(
+        90deg,
+        #6d7cff,
+        #c46cff,
+        #6ddcff,
+        #6d7cff
+    );
+}
+
+
+.search-container {
+    margin-top: 25%; /* Distance from the top of the viewport */
+    margin-left: -10%;
+    width: 90%; /* Responsive width for mobile */
+    max-width: 600px; /* Max width for larger screens */
+    z-index: 1;
+    transition: all 0.3s ease; /* Smooth transitions for hover/focus */
+    position: fixed;
+    top: 1px;
+}
+/* Glassmorphism effect for the input */
+#searchInput {
+    width: 10.68%; /* Full width of container */
+    padding: 20px 20px; /* Comfortable padding */
+    font-size: 14px;
+    margin-left: -37%;
+    color: var(--fg); /* Text color */
+    background-color: color-mix(in srgb, var(--c-glass) 120%, transparent);
+    backdrop-filter: blur(10px); /* Blur background behind the element */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border-radius: 50px; /* Rounded pill shape */
+    box-shadow: var(--box-shadow); /* Soft shadow for depth */
+    border: none;
+    outline: none; /* Remove default focus outline */
+    transition: all 1s ease;
+    
+}
+
+/* Placeholder styling */
+#searchInput::placeholder {
+    color: var(--fg); /* Subtle placeholder text */
+}
+
+/* Hover/Focus effects for interactivity */
+#searchInput:hover,
+#searchInput:focus {
+    background-color: color-mix(in srgb, var(--c-glass) 12%, transparent);
+    transform: scale(1.03);
+    border-radius: 30px;
+    width: 72%;
+    transform: translateX(39%);
+
+}
+
+
+h1 {
+    text-align: center;
+    color: var(--fg);
+    animation: fadeIn 1s ease-in-out;
+}
+
+.filter-toggle {
+    display: block;
+    height: 58px;
+    width: 65px;
+    backdrop-filter: blur(10px); /* Blur background behind the element */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border: none;
+    border-radius: 50px;
+    color: var(--fg); /* Adjust based on background */
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-left: 125%;
+    margin-top: -21%;
+    box-shadow: var(--box-shadow);
+    background-color: color-mix(in srgb, var(--c-glass) 12%, transparent);
+}
+
+.filter-toggle:hover {
+    background-color: color-mix(in srgb, var(--c-glass) 36%, transparent);
+    transform: scale(1.05);
+    border-radius: 20px;
+
+}
+
+.arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.arrow.rotated {
+    transform: rotate(180deg);
+}
+
+.filters {
+    position: fixed;
+    display: none;
+    background-color: color-mix(in srgb, var(--c-glass) 120%, transparent);
+    backdrop-filter: blur(10px); /* Blur background behind the element */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border: none;
+    border-radius: 35px;
+    padding: 20px 20px;
+    margin-top: 60px;
+    margin-left: 5%;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    animation: slideIn 0.5s ease;
+    width: 80%;
+    max-width: 1200px;
+}
+
+
+.toggle-filters-button {
+    position: fixed;
+    top: 105px;
+    left: 3.5%;
+    width: 55px;
+    height: 55px;
+    background-color: color-mix(in srgb, var(--c-glass) 120%, transparent);
+    backdrop-filter: blur(10px); /* Blur background behind the element */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border: none;
+    border-radius: 99px;
+    padding: 14px 16px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    transition: 0.2s ease;
+    box-shadow: var(--box-shadow);
+    color: var(--fg);
+}
+
+.toggle-filters-button i{
+    font-size: 20px;
+}
+
+#filters {
+    transition: opacity 0.2s ease;
+}
+
+.filter-group {
+    margin-bottom: 15px;
+}
+
+.filter-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--fg);
+}
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.filter-button {
+    padding: 10px 15px;
+    background-color: color-mix(in srgb, var(--c-glass) 12%, transparent);
+    backdrop-filter: blur(10px); /* Blur background behind the element */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    animation: bounceIn 0.5s ease;
+    box-shadow: var(--box-shadow);
+    color: var(--fg);
+}
+
+.filter-button:hover {
+    background-color: color-mix(in srgb, var(--c-glass) 36%, transparent);
+    transform: scale(1.05);
+}
+
+.filter-button.active {
+    background-color: color-mix(in srgb, var(--fg) 36%, transparent);
+    transform: scale(1.1);
+}
+
+#video-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+    animation: fadeIn 1s ease-in-out; /* Added animation to video list */
+}
+
+.video-card {
+    width: 90%;
+    background-color: color-mix(in srgb, var(--c-glass) 120%, transparent);
+    backdrop-filter: blur(10px); /* Blur background behind the element */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border: none;
+    border-radius: 30px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: all 0.4s ease;
+    animation: cardAppear 0.8s ease-in-out;
+    position: relative;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    backdrop-filter: blur(30px); /* Blur background behind the element */
+    -webkit-backdrop-filter: blur(30px); /* Safari support */
+}
+
+.video-thumbnail {
+    width: 100%;
+    height: 200px;
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    transition: all 0.3s ease;
+}
+
+.locked .video-thumbnail::before {
+    content: '🔒';
+    font-size: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.video-card h2 {
+    margin: 10px 0;
+    color: var(--fg); /* Adjusted for better visibility on light bg */
+}
+
+.video-card p {
+    color: var(--fg); /* Adjusted for better visibility */
+}
+
+.unlock-button {
+    background-color: color-mix(in srgb, var(--c-glass) 12%, transparent);
+    color: var(--fg);
+    backdrop-filter: blur(10px); /* Blur background behind the element */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: bounceIn 1s;
+}
+
+.unlock-button:hover {
+    background-color: color-mix(in srgb, var(--fg) 36%, transparent);
+    transform: scale(1.1);
+}
+
+.play-button {
+    background-color: color-mix(in srgb, var(--c-glass) 12%, transparent);
+    backdrop-filter: blur(10px); /* Blur background behind the element */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    box-shadow: var(--box-shadow);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: bounceIn 1s;
+    color: var(--fg);
+}
+
+.play-button:hover {
+    background-color: color-mix(in srgb, var(--fg) 36%, transparent);
+    transform: scale(1.1);
+    /* background-color: #45a049; */
+}
+
+.unlock-form {
+    margin-top: 10px;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateY(20px);
+}
+
+.unlock-form.visible {
+    display: block;
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.unlock-form input {
+    box-shadow: var(--box-shadow);
+    background-color: color-mix(in srgb, var(--c-glass) 12%, transparent);
+    padding: 12px;
+    margin-right: 10px;
+    border-radius: 50px;
+    color: var(--fg);
+    border: none;
+    resize: none;
+    outline: none;
+    transition: all 0.4s ease;
+}
+.unlock-form input:hover{
+    transform: scale(1.1);
+    background-color: color-mix(in srgb, var(--c-glass) 36%, transparent);
+    border-radius: 30px;
+
+}
+
+.unlock-form button {
+    padding: 12px 15px;
+    box-shadow: var(--box-shadow);
+    background-color: color-mix(in srgb, var(--c-glass) 12%, transparent);
+    color: var(--fg);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+}
+
+.unlock-form button:hover {
+    background-color: color-mix(in srgb, var(--c-glass) 36%, transparent);    
+    transform: scale(1.1);
+}
+
+.error-message {
+    color: red;
+    margin-top: 5px;
+}
+
+.video-controls {
+    position: absolute;
+    bottom: 5%;
+    left: 2%;
+    width: 84%;
+    background-color: color-mix(in srgb, var(--c-glass) 12%, transparent);
+    backdrop-filter: blur(10px); /* Blur background behind the element */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border-radius: 50px;
+    padding: 10px 20px;
+
+    display: flex;
+    align-items: center;
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+    box-shadow: var(--box-shadow);
+}
+
+.video-controls:hover {
+    opacity: 1;
+}
+
+.play-pause {
+    background: none;
+    border: none;
+    color: var(--fg);
+    font-size: 25px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.progress {
+    flex: 1;
+    margin: 0 10px;
+
+    border-radius: 50px;
+}
+
+.fullscreen-btn {
+    background: none;
+    border: none;
+    color: var(--fg);
+    font-size: 20px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+    transition: filter 0.2s ease;
+}
+
+.video-thumbnail.playing video {
+    animation: fluidPlay 0.5s ease-in-out;
+}
+
+.indicator {
+    position: absolute;
+    top: 50%;
+    color: var(--fg);
+    transform: translateY(-50%);
+    background-color: color-mix(in srgb, var(--c-glass) 12%, transparent);
+    box-shadow: var(--box-shadow);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    padding: 10px;
+    border-radius: 50px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+.volume-indicator {
+    right: 10px;
+}
+
+.brightness-indicator {
+    left: 10px;
+}
+
+.seek-indicator {
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.info-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: color-mix(in srgb, var(--c-glass) 12%, transparent);
+    backdrop-filter: blur(10px); /* Blur background behind the element */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    color: var(--fg);
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    box-shadow: var(--box-shadow);
+}
+
+.info-button:hover {
+    transform: scale(1.2);
+}
+
+.info-bubble {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    background-color: color-mix(in srgb, var(--c-glass) 12%, transparent);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); /* Safari support */
+    border-radius: 30px;
+    padding: 15px;
+    width: 200px;
+    box-shadow: var(--box-shadow);
+    opacity: 0;
+    transform: scale(0.8) translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10;
+    color: --gf;
+}
+
+.info-bubble.visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes cardAppear {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+@keyframes fluidPlay {
+    0% { opacity: 0; filter: blur(5px); transform: scale(0.95); }
+    50% { opacity: 0.5; filter: blur(2px); transform: scale(1.02); }
+    100% { opacity: 1; filter: blur(0); transform: scale(1); }
+}
+
+
+
+
+
+.video-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.control-btn img {
+    width: 50px;
+    height: 50px;
+}
+
+.speed-container {
+    position: relative;
+    background-color: color-mix(in srgb, var(--c-glass) 12%, transparent);
+    backdrop-filter: blur(20px);
+
+}
+
+.speed-options {
+    position: absolute;
+    bottom: 105%;
+    right: 3%;
+    display: none;
+    flex-direction: row;
+    gap: 2px;
+    padding: 4px;
+    border-radius: 20px;
+    box-shadow: var(--box-shadow);
+    background-color: color-mix(in srgb, var(--c-glass) 12%, transparent);
+    animation: bubble-in 0.2s ease-out;
+    backdrop-filter: blur(20px);
+    /* margin-bottom: 10px;
+    margin-right: -30px; */
+
+}
+
+.speed-options.visible {
+    display: flex;
+}
+
+.speed-options button {
+    color: var(--fg);
+    background-color: color-mix(in srgb, var(--c-glass) 12%, transparent);
+    backdrop-filter: blur(20px);
+    border: none;
+    border-radius: 30px;
+    box-shadow: var(--box-shadow);
+    padding: 5px 7px;
+    cursor: pointer;
+    font-size: 14px;
+
+}
+.speed-options button:hover {
+    transform: scale(1.1) translateY(-5px); /* Scale and slight shift right */
+    animation: bounce-in2 0.5s ease, ripple-effect2 0.6s ease; /* Bounce and ripple animations */
+}
+@keyframes bounce-in2 {
+    0% { transform: scale(0.9) translateX(0); }
+    50% { transform: scale(1.15) translateY(-5px); }
+    100% { transform: scale(1.15) translateY(-5px); }
+}
+
+/* Ripple Effect for Dropdown Items */
+@keyframes ripple-effect2 {
+    0% {
+        background-size: 0% 0%;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    100% {
+        background-size: 200% 200%;
+    }
+}
+
+@keyframes bubble-in {
+    from {
+        transform: scale(0.6);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+.speed-box{
+    background-image: var(--speed-img);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #ffffff00;
+    width: 19px;
+    height: 19px;
+    
+}
+.speed-main {
+    padding: 10px 5px;
+    border: none;
+    background-color: #ffffff00;
+
+}
+.control-btn{
+    background-color: #ffffff00;
+    border: none;
+    margin-left: -10px;
+    transition: all 0.4s ease;
+
+}
+.control-btn:hover{
+    transform: scale(1.3);
+}
+
+
+input[type="range"] {
+    -webkit-appearance: none; /* remove default styling */
+    width: 100%;
+    background: transparent;
+}
+
+/* ===== TRACK ===== */
+input[type="range"]::-webkit-slider-runnable-track {
+    height: 6px;
+    background-color: color-mix(in srgb, var(--c-glass) 1%, transparent);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); /* Safari support */
+    box-shadow: var(--box-shadow);
+    border-radius: 5px;
+}
+
+input[type="range"]::-moz-range-track {
+    height: 6px;
+
+    background-color: color-mix(in srgb, var(--c-glass) 1%, transparent);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); /* Safari support */
+    box-shadow: var(--box-shadow);
+    border-radius: 5px;
+}
+
+/* ===== THUMB ===== */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background-color: color-mix(in srgb, var(--c-glass) 100%, transparent);
+    box-shadow: var(--box-shadow);
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -5px;        /* centers thumb vertically */
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background-color: color-mix(in srgb, var(--c-glass) 100%, transparent);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); /* Safari support */
+    box-shadow: var(--box-shadow);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+/* @media screen and (min-width:1000px){
+    .search-container{
+        top: 3%;
+        left: 440px;
+    }
+    #searchInput{
+        width: 70%;
+        padding: 22px 30px;
+        font-size: 1.2rem;
+
+    }
+    .filter-toggle{
+        width: 88px;
+        height: 78px;
+        font-size: 1rem;
+        margin-top: -13%;
+        margin-left: 133%;
+    }
+    .filters{
+        margin-top: 130px;
+        padding: 20px 5px;
+    }
+} */
+
+
+
+
+@media screen and (min-width:700px){
+    .search-container{
+        top: 10%;
+        padding: 25px 20px;
+        left: 1%;
+        margin-top: 0;
+    }
+    #searchInput{
+        width: 9%;
+        padding: 22px 15px;
+        font-size: 1.2rem;
+        margin-left: -38%;
+        margin-top: 3%;
+    }
+    .toggle-filters-button{
+        top: 130px;
+        width: 60px;
+        height: 60px;
+    }
+    .filters{
+        margin-top: 90px;
+        padding: 20px 5px;
+        margin-left: 10%;
+    }
+    .filter-toggle{
+        margin-top: -64px;
+        height: 64px;
+        width: 64px;
+        font-size: 0.8rem;
+
+    }
+    #searchInput:hover,
+    #searchInput:focus {
+        width: 95%;
+        transform: translateX(46%);
+        padding: 22px 30px;
+    }
+}
+@media screen and (min-width:1000px){
+    .search-container{
+        top: 3%;
+        margin-left: 23%;
+    }
+    #searchInput:hover{
+        border-radius: 30px;
+    }
+    .filter-toggle{
+        width: 68px;
+        height: 68px;
+        margin-top: -11%;
+    }
+    #searchInput:hover,
+    #searchInput:focus {
+        width: 80%;
+    }
+    #searchInput{
+        margin-top: 13%;
+        margin-left: -140%;
+    }
+    .toggle-filters-button{
+        top: 145px;
+        width: 65px;
+        height: 65px;
+    }
+    .filters{
+        margin-top: 170px;
+        margin-left: -22%;
+    }
+}
+@media screen and (min-width:1200px){
+    .search-container{
+        margin-left: 18%;
+    }
+    #searchInput:hover,
+    #searchInput:focus {
+        width: 100%;
+    }
+    .toggle-filters-button{
+        top: 16%;
+    }
+    .filters{
+        margin-left: -17%;
+    }
+    #coming-soon{
+        font-size: 64px;
+    }
+}

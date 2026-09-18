@@ -11,18 +11,54 @@ localStorage.setItem('theme', newTheme);
 
 
 const topButton = document.getElementById("topButton");
+const bottomButton = document.getElementById("bottomButton");
 
-window.onscroll = function() {
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 100) {
-    topButton.style.display = "block";
+window.onscroll = function () {
+
+    const scrollTop =
+        document.body.scrollTop || document.documentElement.scrollTop;
+
+    const atBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 5;
+
+    // Top button visibility
+    if (scrollTop > 100) {
+        topButton.style.display = "block";
     } else {
-    topButton.style.display = "none";
+        topButton.style.display = "none";
+        topButton.classList.remove("moveDown");
+    }
+
+    // Bottom reached
+    if (atBottom) {
+        bottomButton.classList.add("hide");
+        topButton.classList.add("moveDown");
+    } else {
+        bottomButton.classList.remove("hide");
+
+        if (scrollTop > 100)
+            topButton.classList.remove("moveDown");
     }
 };
 
 function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 }
+
+function scrollToBottom() {
+    window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: "smooth"
+    });
+}
+
+topButton.onclick = scrollToTop;
+bottomButton.onclick = scrollToBottom;
+
 
 function toggleMenu(el) {
     const menu = document.getElementById('sideMenu');
@@ -235,33 +271,104 @@ async function translatePage(target) {
 }
 
 // ---- UI wiring (single button with 3 options) ----
-const langBtn  = $('#langBtn');
+// const langBtn  = $('#langBtn');
+// const langMenu = $('#langMenu');
+// langBtn.addEventListener('click', () => {
+//     const open = langMenu.classList.toggle('open');
+//     langBtn.setAttribute('aria-expanded', String(open));
+// });
+// langMenu.addEventListener('click', async (e) => {
+//     const btn = e.target.closest('button[data-lang]');
+//     if (!btn) return;
+//     const lang = btn.getAttribute('data-lang');
+//     const name = btn.getAttribute('data-name');
+//     langBtn.textContent = name + '▾';
+//     localStorage.setItem('preferredLang', lang);
+//     langMenu.classList.remove('open');
+//     await translatePage(lang);
+// });
+// document.addEventListener('click', (e) => {
+//     if (!e.target.closest('#langSwitcher')) langMenu.classList.remove('open');
+// });
+
+// // ---- Initial load: apply saved language (English default) ----
+// (async function init() {
+//     const saved = localStorage.getItem('preferredLang') || 'en';
+//     langBtn.textContent = (OPTIONS[saved] || 'English') + '▾';
+//     if (saved !== 'en') await translatePage(saved);
+// })();
+
+const langBtn = $('#langBtn');
 const langMenu = $('#langMenu');
-langBtn.addEventListener('click', () => {
-    const open = langMenu.classList.toggle('open');
-    langBtn.setAttribute('aria-expanded', String(open));
-});
-langMenu.addEventListener('click', async (e) => {
-    const btn = e.target.closest('button[data-lang]');
-    if (!btn) return;
-    const lang = btn.getAttribute('data-lang');
-    const name = btn.getAttribute('data-name');
-    langBtn.textContent = name + '▾';
-    localStorage.setItem('preferredLang', lang);
-    langMenu.classList.remove('open');
-    await translatePage(lang);
-});
-document.addEventListener('click', (e) => {
-    if (!e.target.closest('#langSwitcher')) langMenu.classList.remove('open');
-});
 
-// ---- Initial load: apply saved language (English default) ----
-(async function init() {
-    const saved = localStorage.getItem('preferredLang') || 'en';
-    langBtn.textContent = (OPTIONS[saved] || 'English') + '▾';
-    if (saved !== 'en') await translatePage(saved);
-})();
+if (langBtn && langMenu) {
 
+    langBtn.addEventListener('click', () => {
+
+        const open =
+            langMenu.classList.toggle('open');
+
+        langBtn.setAttribute(
+            'aria-expanded',
+            String(open)
+        );
+
+    });
+
+
+    langMenu.addEventListener(
+        'click',
+        async (e) => {
+
+            const btn =
+                e.target.closest(
+                    'button[data-lang]'
+                );
+
+            if (!btn) return;
+
+            const lang =
+                btn.getAttribute('data-lang');
+
+            const name =
+                btn.getAttribute('data-name');
+
+            langBtn.textContent =
+                name + '▾';
+
+            localStorage.setItem(
+                'preferredLang',
+                lang
+            );
+
+            langMenu.classList.remove('open');
+
+            await translatePage(lang);
+
+        }
+    );
+
+
+    document.addEventListener(
+        'click',
+        (e) => {
+
+            if (
+                !e.target.closest(
+                    '#langSwitcher'
+                )
+            ) {
+
+                langMenu.classList.remove(
+                    'open'
+                );
+
+            }
+
+        }
+    );
+
+}
 
 
 
@@ -345,18 +452,151 @@ document.addEventListener('click', (e) => {
 
 
 
-window.addEventListener('DOMContentLoaded', () => {
-    const h1 = document.getElementById('welcome');
-    // Add the shadow class
-    h1.classList.add('shadow');
-    // Trigger fade-in by toggling visibility after a short delay
-    setTimeout(() => h1.classList.add('visible'), 100);
+
+
+
+// fetch("https://api.countapi.xyz/hit/mywebsite.com/homepage")
+//   .then(res => res.json())
+//   .then(res => {
+//     document.getElementById("viewCounter").innerText =
+//       "Page views: " + res.value;
+//   });
+
+
+
+
+const germanBtn = document.getElementById("germanCourseBtn");
+
+if (germanBtn) {
+
+    germanBtn.addEventListener("click", async (e) => {
+
+        e.preventDefault();
+
+        const token = localStorage.getItem("token");
+
+        if (!token) {
+            window.location.href = "german-login.html";
+            return;
+        }
+
+        try {
+
+            const response = await fetch(
+                "http://localhost:3000/api/verify-token",
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                }
+            );
+
+            if (response.ok) {
+
+                window.location.href = "german-courses.html";
+
+            } else {
+
+                localStorage.removeItem("token");
+
+                window.location.href = "german-login.html";
+            }
+
+        } catch {
+
+            window.location.href = "german-login.html";
+        }
+
+    });
+
+}
+
+
+
+
+const englishBtn = document.getElementById("englishCourseBtn");
+
+if (englishBtn) {
+
+    englishBtn.addEventListener("click", async (e) => {
+
+        e.preventDefault();
+
+        const token = localStorage.getItem("token");
+
+        if (!token) {
+            window.location.href = "english-login.html";
+            return;
+        }
+
+        try {
+
+            const response = await fetch(
+                "http://localhost:3000/api/verify-token",
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                }
+            );
+
+            if (response.ok) {
+
+                window.location.href = "english-courses.html";
+
+            } else {
+
+                localStorage.removeItem("token");
+
+                window.location.href = "english-login.html";
+            }
+
+        } catch {
+
+            window.location.href = "english-login.html";
+        }
+
+    });
+
+}
+document.addEventListener("DOMContentLoaded", () => {
+
+    const profileData =
+        localStorage.getItem("myProfileData");
+
+    if (!profileData) {
+        console.log("No profile data found.");
+        return;
+    }
+
+    const profile =
+        JSON.parse(profileData);
+
+    console.log("Profile:", profile);
+    console.log("Photo:", profile.photo);
+
+    document
+        .querySelectorAll(".user-photo")
+        .forEach(img => {
+
+            if (profile.photo) {
+
+                if (profile.photo.startsWith("http")) {
+                    img.src = profile.photo;
+                } else {
+                    img.src =
+                        "http://localhost:3000" +
+                        profile.photo;
+                }
+
+            } else {
+
+                img.src =
+                    "./static/images/default-profile.png";
+
+            }
+
+        });
+
 });
 
-
-fetch("https://api.countapi.xyz/hit/mywebsite.com/homepage")
-  .then(res => res.json())
-  .then(res => {
-    document.getElementById("viewCounter").innerText =
-      "Page views: " + res.value;
-  });
