@@ -1,109 +1,442 @@
 <!DOCTYPE html>
 <html lang="en">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "EducationalOrganization",
-  "name": "RashtEnglish",
-  "url": "https://rashtenglish.com",
-  "logo": "https://rashtenglish.com/static/images/rasht-english-logo.jpg",
-  "description": "Online English and German learning platform with free level tests.",
-  "areaServed": [
-    { "@type": "Country", "name": "Iran" },
-    { "@type": "Country", "name": "Worldwide" }
-  ],
-  "educationalCredentialAwarded": [
-    "English Language Level Certificate",
-    "German Language Level Certificate"
-  ]
-}
-</script>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learn English & German Online | Free Level Test | RashtEnglish</title>
-
-    <meta name="description" content="Learn English and German online with professional instructors. Take a free language level test, join structured courses, and improve your skills from Iran and worldwide.">
-
-    <meta name="keywords" content="
-    learn english,
-    learn german,
-    english course online,
-    german course online,
-    english level test,
-    german level test,
-    online language school,
-    learn english in iran,
-    learn german in iran,
-    IELTS preparation,
-    language learning platform
-    ">
-    <meta name="description" lang="fa" content="یادگیری آنلاین زبان انگلیسی و آلمانی با اساتید حرفه‌ای. تعیین سطح رایگان، دوره‌های منظم آموزشی و آموزش از ایران و سراسر جهان در RashtEnglish.">
-
-    <meta name="keywords" lang="fa" content="
-    آموزش زبان انگلیسی,
-    آموزش زبان آلمانی,
-    یادگیری زبان آنلاین,
-    تعیین سطح زبان انگلیسی,
-    تعیین سطح زبان آلمانی,
-    کلاس زبان آنلاین,
-    آموزش زبان در ایران,
-    دوره آیلتس,
-    سایت آموزش زبان,
-    انگلیسی,
-    رشت انگلیسی
-    ">
-    <meta name="geo.region" content="IR">
-    <meta name="geo.placename" content="Iran">
-    <meta name="language" content="en, fa, de">
-    <meta name="author" content="RashtEnglish">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Learn English & German Online | Free Level Test">
-    <meta property="og:description" content="Professional English and German courses with free level assessment. Learn from Iran or anywhere in the world.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://rashtenglish.com">
-    <meta property="og:image" content="https://rashtenglish.com/static/images/og-cover.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Learn English & German | Free Level Test">
-    <meta name="twitter:description" content="Online English & German courses with professional teachers and level testing.">
-    <meta name="twitter:image" content="https://rashtenglish.com/static/images/og-cover.jpg">
-
+    <title>eBook Library | RashtEnglish</title>
     <link rel="stylesheet" href="./static/styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="./static/images/rasht-english-logo.jpg">
     <link rel="stylesheet" href="./static/styles/nav.css">
     <link rel="stylesheet" href="./static/styles/day-night2.css">
-    <link rel="alternate" hreflang="en" href="https://rashtenglish.com/">
-    <link rel="alternate" hreflang="fa" href="https://rashtenglish.com/fa/">
-    <link rel="alternate" hreflang="de" href="https://rashtenglish.com/de/">
-    <link rel="alternate" hreflang="x-default" href="https://rashtenglish.com/">
+    <!-- <link rel="stylesheet" href="static/styles/products.css"> -->
+    <style>
+        /* Search Bar */
+        /* Glassmorphism Search Bar CSS */
+        /* Container for the search bar (floating and centered) */
+        .search-container {
+            margin-top: 25%; /* Distance from the top of the viewport */
+            margin-left: -10%;
+            width: 90%; /* Responsive width for mobile */
+            max-width: 600px; /* Max width for larger screens */
+            z-index: 1;
+            transition: all 0.3s ease; /* Smooth transitions for hover/focus */
+            position: fixed;
+            top: 1px;
+        }
+        .overlay.no-translate {
+            position: fixed; 
+            inset: 0; 
+            background: rgba(255,255,255,.6); 
+            backdrop-filter: blur(1px);
+            display: none; 
+            align-items: center; 
+            justify-content: center; 
+            z-index: 2000; 
+            font-weight: 600;
+        }
+        /* Glassmorphism effect for the input */
+        #searchInput {
+            width: 10.7%; /* Full width of container */
+            padding: 20px 20px; /* Comfortable padding */
+            font-size: 14px;
+            margin-left: -20%;
+            color: var(--fg); /* Text color */
+            background-color: color-mix(in srgb, var(--c-glass) 120%, transparent);
+            backdrop-filter: blur(10px); /* Blur background behind the element */
+            -webkit-backdrop-filter: blur(10px); /* Safari support */
+            border-radius: 50px; /* Rounded pill shape */
+            box-shadow: var(--box-shadow); /* Soft shadow for depth */
+            border: none;
+            outline: none; /* Remove default focus outline */
+            transition: all 1s ease;
+        }
+        /* Placeholder styling */
+        #searchInput::placeholder {
+            color: var(--fg); /* Subtle placeholder text */
+        }
 
+        /* Hover/Focus effects for interactivity */
+        #searchInput:hover,
+        #searchInput:focus {
+            background-color: color-mix(in srgb, var(--c-glass) 12%, transparent);
+            transform: scale(1.03);
+            border-radius: 30px;
+            width: 75%;
+            transform: translateX(37%);
+        }
+        
+
+        /* Books Grid */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 60px; /* Space for search bar */
+        }
+
+        .card-container {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            perspective: 1000px;
+        }
+
+        .card {
+            position: absolute;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            margin-left: 20%;
+            backface-visibility: hidden;
+            transition: transform 0.6s ease;
+            transform-style: preserve-3d;
+            border-radius: 35px;
+            box-shadow: 
+                inset 0 0 0 1px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 60%), transparent),
+                inset 2px 1px 0px -1px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 20%), transparent), 
+                inset -1.5px -1px 0px -1px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 20%), transparent), 
+                inset -2px -6px 1px -5px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 60%), transparent), 
+                inset -1px 2px 3px -1px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 30%), transparent), 
+                inset 0px -4px 1px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 70%), transparent), 
+                0px 3px 6px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 50%), transparent);
+            cursor: pointer;
+        }
+
+        .teaser {
+            background-size: cover;
+            background-position: center;
+            transform: rotateY(0deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        /* Glass mode for book name */
+        .book-name {
+            background: rgba(255, 255, 255, 0.2); /* Glass effect */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 5%;
+            margin-bottom: 5%;
+            width: 80%;
+            text-align: center;
+            color: #224;
+            font-weight: bold;
+            border-radius: 25px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .detail {
+            backdrop-filter: blur(10px);
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            transition: transform 0.6s ease;
+            border-radius: 35px;
+            box-shadow: 
+                inset 0 0 0 1px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 100%), transparent),
+                inset 2px 1px 0px -1px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 90%), transparent), 
+                inset -1.5px -1px 0px -1px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 80%), transparent), 
+                inset -2px -6px 1px -5px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 60%), transparent), 
+                inset -1px 2px 3px -1px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 80%), transparent), 
+                inset 0px -4px 1px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 70%), transparent), 
+                0px 3px 6px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 50%), transparent);
+            cursor: pointer;
+            position: relative; /* For positioning the little book page */
+        }
+
+        .detail h2 {
+            margin-bottom: 20px;
+            color: var(--fg);
+        }
+
+        .detail a {
+            display: block;
+            margin: 10px 0;
+            color: var(--fg);
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .detail a:hover {
+            text-decoration: underline;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--fg);
+            border-radius: 50px;
+        }
+
+        .card-container.active .teaser {
+            transform: rotateY(-180deg);
+        }
+
+        .card-container.active .detail {
+            transform: rotateY(0deg);
+        }
+
+        /* Hide non-matching cards */
+        .card-container.hidden {
+            display: none;
+        }
+        .files-title{
+            box-shadow: var(--box-shadow);
+            border-radius: 50px;
+            padding: 5%;
+        }
+        /* Little book image – ONLY for detail (back) card */
+        .little-book-page {
+            position: absolute;
+            top: 7%;
+            left: 7%;
+
+            width: 69px;
+            height: 97px;
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            border-radius: 6px;
+            box-shadow:
+                0 8px 18px rgba(0, 0, 0, 0.25),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+            transform: rotate(-6deg);
+            z-index: 20;
+            pointer-events: none;
+
+            opacity: 0;
+            transition: opacity 0.4s ease 0.2s;
+        }
+        .card-container.active .detail .little-book-page {
+            opacity: 1;
+        }
+        
+        /* Glassmorphism styles - assumes a background on body or parent for blur to show */
+
+
+        .filter-toggle {
+            display: block;
+            height: 56px;
+            width: 56px;
+            backdrop-filter: blur(5px);
+            border: none;
+            border-radius: 50px;
+            color: var(--fg); /* Adjust based on background */
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            margin-left: 13%;
+            margin-top: -56px;
+            box-shadow: var(--box-shadow);
+            font-size: 10px;
+            background-color: #ffffff00;
+            z-index: 1;
+        }
+
+        .filter-toggle:hover {
+            background-color: color-mix(in srgb, var(--c-glass) 12%, transparent);
+            transform: scale(1.05);
+            border-radius: 30px;
+
+        }
+
+        .arrow {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .arrow.rotated {
+            transform: rotate(180deg);
+        }
+
+        .filter-sections {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.3s ease;
+            opacity: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0 3%;
+            margin-top: 162px;
+            backdrop-filter: blur(5px);
+            border: none;
+            border-radius: 50px;
+            box-shadow: var(--box-shadow);
+            background-color: #ffffff00;
+            width: 82%;
+            position: fixed;
+            z-index: 1;
+        }
+
+        .filter-sections.open {
+            max-height: 1000px; /* Adjust based on content height */
+            opacity: 1;
+            padding: 20px;
+        }
+
+        .filter-group {
+            margin: 0 15px;
+        }
+
+        .filter-group h4 {
+            text-align: center;
+            margin-bottom: 5px;
+            font-size: 1rem;
+            color: var(--fg); /* Adjust based on background */
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-buttons button {
+            margin: 5px;
+            padding: 8px 16px;
+            border: none;
+            backdrop-filter: blur(5px);
+            cursor: pointer;
+            border-radius: 50px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+
+            color: var(--fg); /* Adjust based on background */
+            box-shadow: var(--box-shadow);
+            background-color: color-mix(in srgb, var(--c-glass) 12%, transparent);
+            font-weight: 550;
+        }
+        .filter-buttons button:hover {
+            background-color: color-mix(in srgb, var(--c-glass) 36%, transparent);
+            transform: scale(1.05);
+        }
+        .filter-buttons button.active {
+            background-color: color-mix(in srgb, var(--fg) 36%, transparent);
+            transform: scale(1.1);
+        }
+
+        .ripple {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        .card-container {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .card-container.hidden {
+            opacity: 0;
+            transform: scale(0.95);
+            pointer-events: none;
+            display: none; /* To remove from layout */
+        
+        }
+        @media screen and (min-width:700px){
+            .search-container{
+                top: 10%;
+                padding: 25px 20px;
+                left: 1%;
+                margin-top: 0;
+            }
+            #searchInput{
+                width: 9%;
+                padding: 22px 15px;
+                font-size: 1.2rem;
+                margin-left: -33%;
+            }
+            .filter-sections{
+                top: 50px;
+                padding: 20px 5px;
+            }
+            .filter-toggle{
+                margin-top: -64px;
+                height: 64px;
+                width: 64px;
+                font-size: 0.8rem;
+
+            }
+            #searchInput:hover,
+            #searchInput:focus {
+                width: 98%;
+                transform: translateX(43%);
+                padding: 22px 30px;
+            }
+        }
+        @media screen and (min-width:1000px){
+            .search-container{
+                top: 12%;
+                margin-left: -8%;
+            }
+            #searchInput:hover{
+                border-radius: 30px;
+            }
+            .filter-toggle{
+                width: 68px;
+                height: 68px;
+                margin-top: -11%;
+            }
+            .filter-sections{
+                margin-top: 200px;
+            }
+            #searchInput:hover,
+            #searchInput:focus {
+                width: 110%;
+            }
+
+            
+
+        }
+        @media screen and (min-width:1200px){
+            .search-container{
+                top: 15%;
+                margin-left: -5%;
+            }
+            .filter-sections{
+                margin-top: 180px;
+            }
+            #searchInput:hover,
+            #searchInput:focus {
+                width: 135%;
+                transform: translateX(40%);
+                padding: 22px 30px;
+            }
+
+            
+
+        }
+        
+        
+    </style>
 </head>
 <body>
-    <section style="display:none;">
-        <h1>Learn English and German Online</h1>
-        <p>
-            RashtEnglish is an international online language learning platform offering professional English and German courses.
-            Students from Iran and other countries can take free language level tests, join structured classes, and improve
-            speaking, listening, reading, and writing skills with expert teachers.
-        </p>
-    </section>
-    <section style="display:none;" lang="fa">
-        <h2>آموزش آنلاین زبان انگلیسی و آلمانی</h2>
-        <p>
-            RashtEnglish یک پلتفرم حرفه‌ای آموزش آنلاین زبان است که دوره‌های تخصصی زبان انگلیسی و آلمانی را ارائه می‌دهد.
-            زبان‌آموزان از ایران و سایر کشورها می‌توانند با شرکت در آزمون تعیین سطح رایگان، سطح واقعی خود را مشخص کرده
-            و در دوره‌های آموزشی متناسب با سطح خود ثبت‌نام کنند.
-        </p>
-        <p>
-            این وب‌سایت با تمرکز بر مهارت‌های مکالمه، شنیداری، خواندن و نوشتن، محیطی استاندارد برای یادگیری زبان فراهم کرده
-            و گزینه‌ای مناسب برای آمادگی آزمون‌های بین‌المللی مانند IELTS و آزمون‌های زبان آلمانی است.
-        </p>
-    </section>
-    
-
+    <h1 class="page-title">Library</h1>
     <div class="nav-wrap">
         <nav class="glass-nav" aria-label="Primary navigation">
         <div class="nav-inner" dir="ltr">
@@ -161,7 +494,7 @@
             </ul>   
         </div>
         </nav>
-</div>
+    </div>
 
 
 
@@ -204,7 +537,7 @@
         <img class="menu-logo" src="./static/images/rasht-english-logo-3.png" alt="">
 
         <nav class="sidebar-nav">
-        <a href="/Rashtenglish/index.html" class="nav-item active">
+        <a href="/Rashtenglish/index.html" class="nav-item">
             <i class="fas fa-home"></i>
             <span>Home</span>
         </a>
@@ -232,7 +565,7 @@
             <a class="select-options" href='./german-courses.html' style="margin-top: 1%;">German</a>
             </div>
         </li>
-        <li class="dropdown-side nav-item">
+        <li class="dropdown-side nav-item active">
             <i class="fas fa-book-open"></i>
             <span>Resources</span>
             <div class="dropdown-menu-side">
@@ -328,424 +661,199 @@
     <button class="sidebtn" href="#about-us">About us</button><br>
     <button class="sidebtn" href="#">Services</button> -->
 </div>
-    <!-- <div id="sideMenu">
-        
-        <div class="toggle" id="toggle"></div>
+    <!-- <p class="view" id="viewCounter">Loading...</p> -->
+    <div id="side" onclick="toggleMenu()"></div>
+    <div class="overlay no-translate" id="overlay">Translating…</div>
+    
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search for a book name...">
+        <button class="filter-toggle">Filters <span class="arrow">&#9660;</span></button>
+    </div>
 
-        <div class="lang-switcher no-translate" id="langSwitcher" dir="ltr">
-            <button class="translate-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">English ▾</button>
-            <div class="options" id="langMenu" role="menu" aria-label="Select language">
-                <button type="button" data-lang="en" data-name="English" role="menuitem">English</button>
-                <button type="button" data-lang="fa" data-name="Persian" role="menuitem">Persian</button>
-                <button type="button" data-lang="de" data-name="German"  role="menuitem">German</button>
+    <!-- Filter Sections -->
+    <div class="filter-sections">
+        <div class="filter-group">
+            <h4>Sort By</h4>
+            <div class="filter-buttons sort-buttons">
+                <button data-sort="name-asc" class="active">A-Z</button>
+                <button data-sort="name-desc">Z-A</button>
+                <button data-sort="date-desc">Recent</button>
+                <button data-sort="date-asc">Oldest</button>
+                <button data-sort="rating-desc">Rating High-Low</button>
+                <button data-sort="rating-asc">Rating Low-High</button>
+            </div>
+        </div>
+        <div class="filter-group">
+            <h4>Filter By Genre</h4>
+            <div class="filter-buttons genre-buttons">
+                <button data-genre="all" class="active">All</button>
+                <button data-genre="education">Education</button>
+                <button data-genre="fiction">Fiction</button>
+                <!-- Add more genres as needed, e.g., <button data-genre="science">Science</button> -->
+            </div>
+        </div>
+        <div class="filter-group">
+            <h4>Filter By Level</h4>
+            <div class="filter-buttons level-buttons">
+                <button data-level="all" class="active">All</button>
+                <button data-level="starter">Starter</button>
+                <button data-level="intermediate">Intermediate</button>
+                <button data-level="advanced">Advanced</button>
+                <!-- Add more levels as needed -->
+            </div>
+        </div>
+        <!-- Add more filter groups as needed, e.g., for Author, Price Range, etc. -->
+    </div>
+    <br><br><br><br><br>
+    <!-- Books Grid -->
+    <div class="books-grid" dir="ltr">
+        <!-- Book 1 -->
+        <div class="card-container" data-book-name="Family and friends starter" data-publication-date="2026-01-01" data-genre="education" data-level="starter" data-rating="4.5">
+            <!-- FRONT -->
+            <div class="card teaser" style="background-image: url('static/images/book-pics/family&friends-starter.jpg')">
+                <div class="book-name no-translate">Family and friends starter</div>
+            </div>
+
+            <!-- BACK -->
+            <div class="card detail">
+                <span class="close-btn">&times;</span>
+
+                <!-- Little book image (ONLY here) -->
+                <div class="little-book-page" style="background-image: url('static/images/book-pics/family&friends-starter.jpg');"></div>
+
+                <h3 class="files-title">Files</h3>
+                <a href="./books/Starter/Books/FF Starter-CB.pdf" download>Class book</a>
+                <a href="./books/Starter/Books/FF Starter-WB.pdf" download>Workbook</a>
+                <a href="./books/Starter/CDs/CDs.rar" download>Audio files</a>
+            </div>
+        </div>
+        <!-- Book 2 -->
+        <div class="card-container" data-book-name="Family and friends 1" data-publication-date="2026-01-02" data-genre="education" data-level="starter" data-rating="4.5">
+            <!-- FRONT -->
+            <div class="card teaser" style="background-image: url('static/images/book-pics/family&friends-1.png')">
+                <div class="book-name no-translate">Family and friends 1</div>
+            </div>
+
+            <!-- BACK -->
+            <div class="card detail">
+                <span class="close-btn">&times;</span>
+
+                <!-- Little book image (ONLY here) -->
+                <div class="little-book-page" style="background-image: url('static/images/book-pics/family&friends-1.png');"></div>
+
+                <h3 class="files-title">Files</h3>
+                <a href="./books/1/Books/ff 1-CB.pdf" download>Class book</a>
+                <a href="./books/1/Books/ff 1-WB.pdf" download>Workbook</a>
+                <a href="./books/1/CDs/CDs.rar" download>Audio files</a>
+            </div>
+        </div>
+        <!-- Book 3 -->
+        <div class="card-container" data-book-name="Family and friends 2" data-publication-date="2026-01-03" data-genre="education" data-level="starter" data-rating="4.5">
+            <!-- FRONT -->
+            <div class="card teaser" style="background-image: url('static/images/book-pics/family&friends-2.png')">
+                <div class="book-name no-translate">Family and friends 2</div>
+            </div>
+
+            <!-- BACK -->
+            <div class="card detail">
+                <span class="close-btn">&times;</span>
+
+                <!-- Little book image (ONLY here) -->
+                <div class="little-book-page" style="background-image: url('static/images/book-pics/family&friends-2.png');"></div>
+
+                <h3 class="files-title">Files</h3>
+                <a href="./books/3/Books/ff 3-CB.pdf" download>Class book</a>
+                <a href="./books/3/Books/ff 3-WB.pdf" download>Workbook</a>
+                <a href="./books/3/CDs/CDs.rar" download>Audio files</a>
+            </div>
+        </div>
+        <!-- Book 4 -->
+        <div class="card-container" data-book-name="Family and friends 3" data-publication-date="2026-01-04" data-genre="education" data-level="starter" data-rating="4.5">
+            <!-- FRONT -->
+            <div class="card teaser" style="background-image: url('static/images/book-pics/family&friends-3.png')">
+                <div class="book-name no-translate">Family and friends 3</div>
+            </div>
+
+            <!-- BACK -->
+            <div class="card detail">
+                <span class="close-btn">&times;</span>
+
+                <!-- Little book image (ONLY here) -->
+                <div class="little-book-page" style="background-image: url('static/images/book-pics/family&friends-3.png');"></div>
+
+                <h3 class="files-title">Files</h3>
+                <a href="./books/3/Books/ff 3-CB.pdf" download>Class book</a>
+                <a href="./books/3/Books/ff 3-WB.pdf" download>Workbook</a>
+                <a href="./books/3/CDs/CDs.rar" download>Audio files</a>
+            </div>
+        </div>
+        <!-- Book 5 -->
+        <div class="card-container" data-book-name="Family and friends 4" data-publication-date="2026-01-05" data-genre="education" data-level="starter" data-rating="4.5">
+            <!-- FRONT -->
+            <div class="card teaser" style="background-image: url('static/images/book-pics/family&friends-4.png')">
+                <div class="book-name no-translate">Family and friends 4</div>
+            </div>
+
+            <!-- BACK -->
+            <div class="card detail">
+                <span class="close-btn">&times;</span>
+
+                <!-- Little book image (ONLY here) -->
+                <div class="little-book-page" style="background-image: url('static/images/book-pics/family&friends-4.png');"></div>
+
+                <h3 class="files-title">Files</h3>
+                <a href="./books/4/Books/ff4-CB.pdf" download>Class book</a>
+                <a href="./books/4/Books/ff4-WB.pdf" download>Workbook</a>
+                <a href="./books/4/CDs/CDs.rar" download>Audio files</a>
+            </div>
+        </div>
+        <!-- Book 6 -->
+        <div class="card-container" data-book-name="Family and friends 5" data-publication-date="2026-01-06" data-genre="education" data-level="starter" data-rating="4.5">
+            <!-- FRONT -->
+            <div class="card teaser" style="background-image: url('static/images/book-pics/family&friends-5.png')">
+                <div class="book-name no-translate">Family and friends 5</div>
+            </div>
+
+            <!-- BACK -->
+            <div class="card detail">
+                <span class="close-btn">&times;</span>
+
+                <!-- Little book image (ONLY here) -->
+                <div class="little-book-page" style="background-image: url('static/images/book-pics/family&friends-5.png');"></div>
+
+                <h3 class="files-title">Files</h3>
+                <a href="./books/5/Books/ff5-CB.pdf" download>Class book</a>
+                <a href="./books/5/Books/ff5-WB.pdf" download>Workbook</a>
+                <a href="./books/5/CDs/CDs.rar" download>Audio files</a>
+            </div>
+        </div>
+        <!-- Book 7 -->
+        <div class="card-container" data-book-name="Family and friends 6" data-publication-date="2026-01-07" data-genre="education" data-level="starter" data-rating="4.5">
+            <!-- FRONT -->
+            <div class="card teaser" style="background-image: url('static/images/book-pics/family&friends-6.png')">
+                <div class="book-name no-translate">Family and friends 6</div>
+            </div>
+
+            <!-- BACK -->
+            <div class="card detail">
+                <span class="close-btn">&times;</span>
+
+                <!-- Little book image (ONLY here) -->
+                <div class="little-book-page" style="background-image: url('static/images/book-pics/family&friends-5.png');"></div>
+
+                <h3 class="files-title">Files</h3>
+                <a href="./books/6/Books/ff6-CB.pdf" download>Class book</a>
+                <a href="./books/6/Books/ff6-WB.pdf" download>Workbook</a>
+                <a href="./books/6/CDs/1.rar" download>Audio files</a>
             </div>
         </div>
 
-        <button class="sidebtn" id="first-btn" onclick="window.location.href='login.html'">Log in</button><br>
-        <button class="sidebtn" href="#about-us">About us</button><br>
-        <button class="sidebtn" href="#">Services</button>
-    </div> -->
-    <p class="view" id="viewCounter"></p>
-    <div id="side" onclick="toggleMenu()"></div>
-    <div class="overlay no-translate" id="overlay">Translating…</div>
-    <!-- <main class="">
-        <h1 class="welcome">Welcome to</h1>
-        <h1 id="welcome" class="no-translate">Rashtenglish</h1>
-    </main> -->
-    <div class="content-card" dir="ltr">
-    <div class="animate seven">
-        <span class="no-translate">W</span><span class="no-translate">e</span><span class="no-translate">l</span><span class="no-translate">c</span><span class="no-translate">o</span><span class="no-translate">m</span><span class="no-translate">e</span>&nbsp;<span class="no-translate">t</span><span class="no-translate">o</span><br>&nbsp;<span class="no-translate">R</span><span class="no-translate">a</span><span class="no-translate">s</span><span>h</span><span>t</span><span class="no-translate">e</span><span class="no-translate">n</span><span class="no-translate">g</span><span class="no-translate">l</span><span class="no-translate">i</span><span class="no-translate">s</span><span class="no-translate">h</span>
-    </div></div>
-    <!-- ==========================
-        MAIN HOMEPAGE CONTENT
-    ========================== -->
-
-    <main class="home-content">
         
 
-        <!-- HERO -->
-        <section class="hero-section">
-
-            <div class="hero-text">
-
-                <span class="hero-badge">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                    Learn • Practice • Improve
-                </span>
-
-                <h1>
-                    Learn English & German
-                    <span>with RashtEnglish</span>
-                </h1>
-
-                <!-- <p>
-                    Improve your English and German with structured courses,
-                    professional lessons, learning resources, and personalized
-                    classes.
-                </p> -->
-                <section class="seo-fa">
-                    <h1 style="font-size: 1rem;">Online English and German language training</h1>
-                    <p style="font-size: 0.8rem;">Learn English and German online properly with RashtEnglish. Free level assessment, leveled courses, and appropriate instruction for learners inside Iran and abroad.</p>
-                </section>
-
-                <div class="hero-buttons">
-
-                    <a href="english-courses.html" class="hero-btn primary">
-                        <i class="fa-solid fa-book-open"></i>
-                        Explore Courses
-                    </a>
-
-                    <a href="login.html" class="hero-btn secondary">
-                        <i class="fa-solid fa-clipboard-check"></i>
-                        Take Level Test
-                    </a>
-
-                </div>
-
-            </div>
-
-            <div class="hero-card">
-
-                <div class="hero-card-icon">
-                    <i class="fa-solid fa-language"></i>
-                </div>
-
-                <h3>Start Learning Today</h3>
-
-                <p>
-                    Choose your course, book a class,
-                    or test your current language level.
-                </p>
-
-                <a href="book-class.html">
-                    Book a Class
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <!-- ==========================
-            MAIN FEATURES
-        ========================== -->
-
-        <section class="home-section">
-
-            <div class="section-heading">
-                <span>LEARNING PLATFORM</span>
-                <h2>Everything you need to learn</h2>
-                <p>
-                    Access courses, books, tests and personalized classes
-                    from one place.
-                </p>
-            </div>
-
-
-            <div class="feature-grid">
-
-
-                <!-- COURSES -->
-
-                <a href="english-courses.html" class="feature-card">
-
-                    <div class="feature-icon">
-                        <i class="fa-solid fa-book-open"></i>
-                    </div>
-
-                    <div>
-                        <h3>Courses</h3>
-
-                        <p>
-                            Explore English and German courses
-                            organized by level and subject.
-                        </p>
-                    </div>
-
-                    <i class="fa-solid fa-arrow-right card-arrow"></i>
-
-                </a>
-
-
-                <!-- BOOKS -->
-
-                <a href="adult.html" class="feature-card">
-
-                    <div class="feature-icon">
-                        <i class="fa-solid fa-book"></i>
-                    </div>
-
-                    <div>
-                        <h3>Books & Resources</h3>
-
-                        <p>
-                            Find useful books, vocabulary,
-                            grammar and learning materials.
-                        </p>
-                    </div>
-
-                    <i class="fa-solid fa-arrow-right card-arrow"></i>
-
-                </a>
-
-
-                <!-- LEVEL TEST -->
-
-                <a href="login.html" class="feature-card">
-
-                    <div class="feature-icon">
-                        <i class="fa-solid fa-clipboard-check"></i>
-                    </div>
-
-                    <div>
-                        <h3>Free Level Test</h3>
-
-                        <p>
-                            Discover your current English or
-                            German level with our free tests.
-                        </p>
-                    </div>
-
-                    <i class="fa-solid fa-arrow-right card-arrow"></i>
-
-                </a>
-
-
-                <!-- PRIVATE CLASS -->
-
-                <a href="book-class.html" class="feature-card">
-
-                    <div class="feature-icon">
-                        <i class="fa-solid fa-chalkboard-user"></i>
-                    </div>
-
-                    <div>
-                        <h3>Book a Class</h3>
-
-                        <p>
-                            Choose an available day and time
-                            that works for you.
-                        </p>
-                    </div>
-
-                    <i class="fa-solid fa-arrow-right card-arrow"></i>
-
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <!-- ==========================
-            WHY RASHTENGLISH
-        ========================== -->
-
-        <section class="home-section">
-
-            <div class="section-heading">
-
-                <span>WHY RASHTENGLISH?</span>
-
-                <h2>A better way to learn</h2>
-
-            </div>
-
-
-            <div class="benefits-grid">
-
-                <div class="benefit-card">
-
-                    <i class="fa-solid fa-user-tie"></i>
-
-                    <h3>Professional Teachers</h3>
-
-                    <p>
-                        Learn with experienced language instructors.
-                    </p>
-
-                </div>
-
-
-                <div class="benefit-card">
-
-                    <i class="fa-solid fa-calendar-check"></i>
-
-                    <h3>Flexible Classes</h3>
-
-                    <p>
-                        Choose a class time that fits your schedule.
-                    </p>
-
-                </div>
-
-
-                <div class="benefit-card">
-
-                    <i class="fa-solid fa-chart-line"></i>
-
-                    <h3>Structured Learning</h3>
-
-                    <p>
-                        Follow courses designed around your language level.
-                    </p>
-
-                </div>
-
-
-                <div class="benefit-card">
-
-                    <i class="fa-solid fa-earth-americas"></i>
-
-                    <h3>Learn Anywhere</h3>
-
-                    <p>
-                        Study online from Iran or anywhere in the world.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ==========================
-            CALL TO ACTION
-        ========================== -->
-
-        <section class="home-cta">
-
-            <div>
-
-                <span>READY TO START?</span>
-
-                <h2>
-                    Find your class and start learning.
-                </h2>
-
-                <p>
-                    Choose an available time and book your lesson.
-                </p>
-
-            </div>
-
-            <a href="book-class.html">
-                Choose a Class
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
-
-
-            <!-- <section class="home-features">
-
-                <div class="feature-card">
-
-                    <i class="fa-solid fa-graduation-cap"></i>
-
-                    <h2>Courses</h2>
-
-                    <p>
-                        Explore our English and German courses
-                        and continue your learning journey.
-                    </p>
-
-                    <a href="courses.html">
-                        Explore Courses
-                    </a>
-
-                </div>
-
-
-                <div class="feature-card">
-
-                    <i class="fa-solid fa-book"></i>
-
-                    <h2>Books</h2>
-
-                    <p>
-                        Find useful books and learning materials
-                        for your language studies.
-                    </p>
-
-                    <a href="books.html">
-                        Browse Books
-                    </a>
-
-                </div>
-
-
-                <div class="feature-card">
-
-                    <i class="fa-solid fa-calendar-days"></i>
-
-                    <h2>Choose Your Class</h2>
-
-                    <p>
-                        Choose up to three available class times
-                        that work best for you.
-                    </p>
-
-                    <a href="class-times.html">
-                        Choose Time
-                    </a>
-
-                </div>
-
-
-                <div class="feature-card">
-
-                    <i class="fa-solid fa-clipboard-check"></i>
-
-                    <h2>Level Test</h2>
-
-                    <p>
-                        Find your current English or German
-                        level with our free tests.
-                    </p>
-
-                    <a href="beginner-exam.html">
-                        Take Test
-                    </a>
-
-                </div>
-
-            </section> -->
-
-        </section>
-
-    </main>
-
-
-    <!-- <div class="about-us" id="about-us" dir="ltr">
-        <table cellspacing="0" cellpadding="0">
-        <tr> -->
-           
-        <!-- </tr>
-        <tr>
-            <td><button class="communication-button"  onclick="window.location.href='https://t.me/rashtenglish5'">
-            <i id="telegram-icon" class="fa-brands fa-telegram"></i></button>
-            <a class="links no-translate" id="telegram-a" href="https://t.me/rashtenglish5">rashtenglish5</a></td>
-        </tr>
-        <tr>
-            <td><button class="communication-button" id="whatsapp" onclick="window.location.href='https://wa.me/989379222166'">
-            <i id="whatsapp-icon" class="fa-brands fa-whatsapp"></i></button>
-            <a class="links" id="whatsapp-a" href="https://wa.me/989379222166">+98 937 922 2166</a></td>
-        </tr>
-        <tr>
-        <td><button class="communication-button" id="youtube" onclick="window.location.href='https://youtube.com/'">
-            <i id="youtube-icon" class="fa-brands fa-youtube"></i></button>
-            <a class="links no-translate" id="youtube-a" href="https://youtube.com/">Rashtenglish</a></td>
-        </tr>
-        <tr>
-            <td><button class="communication-button" id="insta" onclick="window.location.href='https://instagram.com/rashtenglish'">
-            <i id="instagram-icon" class="fa-brands fa-instagram"></i></button>
-            <a class="links no-translate" id="insta-a" href="https://instagram.com/rashtenglish?igsh=djq3MTA3YnNsdmpx">rashtenglish</a></td>
-        </tr>
-        </table>
-    </div> -->
+        
     
-
+    </div>
     <section class="contact-section" id="contact">
 
     
@@ -893,96 +1001,166 @@
     </div>
 
     </section>
-
-    <!-- =====================================================
-        PROMOTION GLASS CARD
-    ===================================================== -->
-
-    <div class="promo-glass-card">
-
-    <button class="promo-close" type="button" aria-label="Close">
-        <i class="fas fa-times"></i>
-    </button>
-
-    <div class="promo-icon">
-        <i class="fas fa-graduation-cap"></i>
-    </div>
-
-    <div class="promo-content">
-        <div class="promo-title">
-            Special Discount
-        </div>
-
-        <div class="promo-main">
-            <strong>17% OFF</strong>
-            online classes
-        </div>
-
-        <div class="promo-morning">
-            + <strong>10% OFF</strong>
-            for morning classes
-        </div>
-        <a href="/Rashtenglish/book-class.html">
-            <span>Book a class</span>
-            <i class="fa-solid fa-arrow-right"></i>
-        </a>
-    </div>
-
-</div>
-
-    
     <button id="topButton" onclick="scrollToTop()">Top</button>
     <button id="bottomButton">Bottom</button>
     <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            const h1 = document.getElementById('welcome');
-            // Add the shadow class
-            h1.classList.add('shadow');
-            // Trigger fade-in by toggling visibility after a short delay
-            setTimeout(() => h1.classList.add('visible'), 100);
-        });
-    </script>
-    <script src="./static/js/nav.js"></script>
-    <script src="./static/js/script.js"></script>
-    <script src="./static/js/day-night2.js"></script>
-    <script type="application/ld+json">
-    {
-    "@context": "https://schema.org",
-    "@type": "EducationalOrganization",
-    "name": "RashtEnglish",
-    "url": "https://rashtenglish.com",
-    "logo": "https://rashtenglish.com/static/images/rasht-english-logo.jpg",
-    "sameAs": [
-        "https://instagram.com/rashtenglish",
-        "https://t.me/rashtenglish5"
-    ],
-    "areaServed": [
-        { "@type": "Country", "name": "Iran" },
-        { "@type": "Country", "name": "Germany" },
-        { "@type": "Country", "name": "Worldwide" }
-    ],
-    "description": "Online platform for learning English and German with free level tests and professional courses."
-    }
-    </script>
-    <script>
-        const promoCard =
-            document.querySelector(".promo-glass-card");
+        // Twisting functionality for each card
+        const cardContainers = document.querySelectorAll('.card-container');
+        cardContainers.forEach(cardContainer => {
+            const teaserCard = cardContainer.querySelector('.card.teaser');
+            const closeBtn = cardContainer.querySelector('.close-btn');
 
-        const promoClose =
-            document.querySelector(".promo-close");
-
-        if (promoCard && promoClose) {
-
-            promoClose.addEventListener("click", () => {
-
-                promoCard.style.display = "none";
-
+            teaserCard.addEventListener('click', () => {
+                cardContainer.classList.add('active');
             });
 
+            closeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                cardContainer.classList.remove('active');
+            });
+
+            cardContainer.addEventListener('click', (e) => {
+                if (e.target === cardContainer) {
+                    cardContainer.classList.remove('active');
+                }
+            });
+        });
+
+        // Additional buy button functionality (if buttons are added to details)
+        cardContainers.forEach(cardContainer => {
+            const buyBtn = cardContainer.querySelector('button');
+            if (buyBtn) {
+                buyBtn.addEventListener('click', (e) => {
+                    createRipple(e);
+                    setTimeout(() => {
+                        alert('Purchased!');
+                        cardContainer.classList.remove('active');
+                    }, 300);
+                });
+            }
+        });
+
+        // Search and filter functionality
+        let currentSearchTerm = '';
+        let currentSort = 'name-asc'; // Default sort
+        let currentGenre = 'all'; // Default genre filter
+        let currentLevel = 'all'; // Default level filter
+
+        const searchInput = document.getElementById('searchInput');
+        const grid = document.querySelector('.books-grid');
+        const sortButtons = document.querySelectorAll('.sort-buttons button');
+        const genreButtons = document.querySelectorAll('.genre-buttons button');
+        const levelButtons = document.querySelectorAll('.level-buttons button');
+        const filterToggle = document.querySelector('.filter-toggle');
+        const filterSections = document.querySelector('.filter-sections');
+        const filterArrow = filterToggle.querySelector('.arrow');
+
+        function applyFiltersAndSort() {
+            let containers = Array.from(document.querySelectorAll('.card-container'));
+
+            // Filter
+            containers = containers.filter(container => {
+                const bookName = container.dataset.bookName.toLowerCase();
+                const genre = container.dataset.genre || '';
+                const level = container.dataset.level || '';
+
+                const matchesSearch = bookName.includes(currentSearchTerm);
+                const matchesGenre = currentGenre === 'all' || genre === currentGenre;
+                const matchesLevel = currentLevel === 'all' || level === currentLevel;
+
+                return matchesSearch && matchesGenre && matchesLevel;
+            });
+
+            // Sort
+            if (currentSort === 'name-asc') {
+                containers.sort((a, b) => a.dataset.bookName.toLowerCase().localeCompare(b.dataset.bookName.toLowerCase()));
+            } else if (currentSort === 'name-desc') {
+                containers.sort((a, b) => b.dataset.bookName.toLowerCase().localeCompare(a.dataset.bookName.toLowerCase()));
+            } else if (currentSort === 'date-desc') {
+                containers.sort((a, b) => new Date(b.dataset.publicationDate) - new Date(a.dataset.publicationDate));
+            } else if (currentSort === 'date-asc') {
+                containers.sort((a, b) => new Date(a.dataset.publicationDate) - new Date(b.dataset.publicationDate));
+            } else if (currentSort === 'rating-desc') {
+                containers.sort((a, b) => parseFloat(b.dataset.rating) - parseFloat(a.dataset.rating));
+            } else if (currentSort === 'rating-asc') {
+                containers.sort((a, b) => parseFloat(a.dataset.rating) - parseFloat(b.dataset.rating));
+            }
+
+            // Hide all and show/reorder filtered & sorted
+            cardContainers.forEach(c => c.classList.add('hidden'));
+            containers.forEach(container => {
+                container.classList.remove('hidden');
+                grid.appendChild(container);
+            });
         }
+
+        // Search input listener
+        searchInput.addEventListener('input', () => {
+            currentSearchTerm = searchInput.value.toLowerCase();
+            applyFiltersAndSort();
+        });
+
+        // Sort buttons listeners
+        sortButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                createRipple(e);
+                sortButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentSort = btn.dataset.sort;
+                applyFiltersAndSort();
+            });
+        });
+
+        // Genre buttons listeners
+        genreButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                createRipple(e);
+                genreButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentGenre = btn.dataset.genre;
+                applyFiltersAndSort();
+            });
+        });
+
+        // Level buttons listeners
+        levelButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                createRipple(e);
+                levelButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentLevel = btn.dataset.level;
+                applyFiltersAndSort();
+            });
+        });
+
+        // Filter toggle listener
+        filterToggle.addEventListener('click', (e) => {
+            createRipple(e);
+            filterSections.classList.toggle('open');
+            filterArrow.classList.toggle('rotated');
+        });
+
+        // Ripple effect function
+        function createRipple(event) {
+            const btn = event.currentTarget;
+            const circle = document.createElement("span");
+            circle.classList.add("ripple");
+            btn.appendChild(circle);
+            const d = Math.max(btn.clientWidth, btn.clientHeight);
+            circle.style.width = circle.style.height = d + "px";
+            const rect = btn.getBoundingClientRect();
+            circle.style.left = event.clientX - rect.left - d/2 + "px";
+            circle.style.top = event.clientY - rect.top - d/2 + "px";
+            circle.addEventListener("animationend", () => {
+                circle.remove();
+            });
+        }
+
+        // Initial setup
+        applyFiltersAndSort();
     </script>
-
-
-    
+    <script src="static/js/script.js"></script>
+    <script src="static/js/nav.js"></script>
+    <script src="./static/js/day-night2.js"></script>
 </body>
 </html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<title>پرداخت دوره</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family: "Poppins", sans-serif;
+    }
+
+    body{
+        background: linear-gradient(135deg,#b2fefa,#0ed2f7);
+        height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        overflow:hidden;
+    }
+
+    /* Floating blurred circles */
+    .circle{
+        position:absolute;
+        width:300px;
+        height:300px;
+        filter:blur(120px);
+        border-radius:50%;
+        animation: float 8s infinite alternate ease-in-out;
+    }
+    .c1{ background:#fff; top:10%; left:10%; }
+    .c2{ background:#00eaff; bottom:10%; right:10%; }
+
+    @keyframes float {
+        0%{ transform:translateY(0px) translateX(0); }
+        100%{ transform:translateY(60px) translateX(40px); }
+    }
+
+    /* Glass container */
+    .glass-box{
+        width:420px;
+        padding:30px;
+        background:rgba(255,255,255,0.15);
+        backdrop-filter:blur(20px);
+        border-radius:25px;
+        border:1px solid rgba(255,255,255,0.4);
+        box-shadow:0 0 30px rgba(255,255,255,0.4);
+        animation: show 0.6s ease;
+    }
+
+    @keyframes show {
+        from{opacity:0; transform:scale(.8);}
+        to{opacity:1; transform:scale(1);}
+    }
+
+    h2{
+        color:#fff;
+        margin-bottom:25px;
+        font-size:24px;
+        text-align:center;
+        text-shadow:0 0 10px #fff;
+    }
+
+    .input-group{
+        margin-bottom:20px;
+        display:flex;
+        flex-direction:column;
+        color:white;
+        font-size:14px;
+    }
+
+    label{
+        margin-bottom:6px;
+        opacity:.9;
+    }
+
+    input{
+        padding:12px;
+        border-radius:15px;
+        border:none;
+        outline:none;
+        background:rgba(255,255,255,0.25);
+        backdrop-filter:blur(10px);
+        color:#fff;
+        transition:.3s;
+    }
+
+    input:focus{
+        transform:scale(1.03);
+        background:rgba(255,255,255,0.35);
+    }
+
+    /* luxury glass button */
+    button{
+        margin-top:10px;
+        width:100%;
+        padding:14px;
+        background:rgba(255,255,255,0.25);
+        border:none;
+        border-radius:18px;
+        color:#fff;
+        font-size:18px;
+        cursor:pointer;
+        backdrop-filter:blur(15px);
+        transition:.3s;
+        font-weight:600;
+        box-shadow:0 0 12px rgba(255,255,255,0.4);
+    }
+
+    button:hover{
+        transform:scale(1.07);
+        background:rgba(255,255,255,0.35);
+        box-shadow:0 0 20px rgba(255,255,255,0.7);
+    }
+
+    button:active{
+        transform:scale(.93);
+        box-shadow:0 0 8px rgba(255,255,255,0.3);
+    }
+
+</style>
+</head>
+<body>
+
+<div class="circle c1"></div>
+<div class="circle c2"></div>
+
+<div class="glass-box">
+    <h2>پرداخت دوره HTML</h2>
+
+    <div class="input-group">
+        <label>نام و نام‌خانوادگی</label>
+        <input type="text" id="nameInput" placeholder="مثلا: آراد تقی‌زاده">
+    </div>
+
+    <div class="input-group">
+        <label>شماره موبایل</label>
+        <input type="text" id="phoneInput" placeholder="0912...">
+    </div>
+
+    <div class="input-group">
+        <label>قیمت</label>
+        <input type="text" disabled value="200,000 تومان">
+    </div>
+
+    <button onclick="payNow()">پرداخت و خرید دوره</button>
+</div>
+
+<script>
+function payNow(){
+    const name = document.getElementById("nameInput").value.trim();
+    const phone = document.getElementById("phoneInput").value.trim();
+
+    if(!name || !phone){
+        alert("لطفاً اطلاعات را کامل کنید");
+        return;
+    }
+
+    // simulate bank payment
+    alert("در حال انتقال به درگاه پرداخت...");
+
+    // بعد از پرداخت موفق
+    localStorage.setItem("courseUnlocked", "true");
+    window.location.href = "german-courses.html";
+}
+</script>
+
+</body>
+</html>
